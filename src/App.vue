@@ -1,14 +1,13 @@
 <template>
   <div id="app">
     <nav-bar/>
-    <Home />
     <router-view/>
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar";
-import Home from './views/Home'
+import Home from "./views/Home";
 export default {
   name: "App",
   components: {
@@ -1037,14 +1036,15 @@ h6 {
 
 .ultimos_leiloes_item {
   display: flex;
+  height: 300px;;
+  background-color: #078a06;
   flex-direction: row;
   justify-content: center;
   align-items: flex-end;
-  height: 260px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  margin: 10px 0px;
+  margin-top: 30px;
   border-radius: 2px;
   cursor: pointer;
   transition: 0.5s all;
