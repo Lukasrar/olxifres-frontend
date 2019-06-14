@@ -115,7 +115,7 @@ export default {
 
 <style scoped>
 .form {
-  background-image: url(../assets/bg.jpg);
+  background-image: url(../assets/img/bg.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
