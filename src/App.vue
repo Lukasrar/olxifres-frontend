@@ -2,17 +2,18 @@
   <div id="app">
     <nav-bar/>
     <router-view/>
+    <Footer/>
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar";
-import Home from "./views/Home";
+import Footer from './components/layout/Footer'
 export default {
   name: "App",
   components: {
     NavBar,
-    Home
+    Footer
   }
 };
 </script>
@@ -1036,7 +1037,7 @@ h6 {
 
 .ultimos_leiloes_item {
   display: flex;
-  height: 300px;;
+  height: 300px;
   background-color: #078a06;
   flex-direction: row;
   justify-content: center;

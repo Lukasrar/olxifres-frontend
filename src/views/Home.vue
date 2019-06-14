@@ -4,7 +4,7 @@
     <InfosHeader/>
     <UltimosLeiloes/>
     <Destaque/>
-    <LeiloesAtivos />
+    <LeiloesAtivos/>
   </div>
 </template>
 
@@ -13,7 +13,7 @@ import Header from "../components/layout/Header";
 import InfosHeader from "../components/layout/InfosHeader";
 import UltimosLeiloes from "../components/layout/UltimosLeiloes";
 import Destaque from "../components/layout/Destaque";
-import LeiloesAtivos from '../components/layout/LeiloesAtivos'
+import LeiloesAtivos from "../components/layout/LeiloesAtivos";
 
 export default {
   name: "home",
