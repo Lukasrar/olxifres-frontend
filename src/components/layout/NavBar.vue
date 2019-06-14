@@ -2,28 +2,25 @@
   <header class="header">
     <div class="coluna-small-5 coluna-larg-2">
       <div class="container-logo">
-        <a class="logo" href="index.html">
-          LOGO
-        </a>
+        <router-link tag="a" to="/" class="logo">LOGO</router-link>
       </div>
     </div>
     <input class="menu-btn" type="checkbox" id="menu-btn">
     <ul class="menu">
       <li>
-        <a href="index.html" class="active">Início</a>
+        <router-link tag="a" to="/">Início</router-link>
       </li>
       <li>
-        <a href="listagem.html">Leilões</a>
+        <router-link tag="a" to="/leiloes">Leilões</router-link>
       </li>
       <li>
-        <a href="sobre-nos.html">Sobre nós</a>
+        <router-link tag="a" to="/about">Sobre nós</router-link>
       </li>
       <li>
-        <a href="contato.html">Contato</a>
+        <router-link tag="a" to="/contato">Contato</router-link>
       </li>
       <li>
-        <a href="login.html">
-          <i class="fa fa-user" aria-hidden="true"></i>
+          <router-link tag="a" class="fa fa-user" aria-hidden="true" to="/login"></router-link>
         </a>
       </li>
     </ul>
