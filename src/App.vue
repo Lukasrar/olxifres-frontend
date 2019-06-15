@@ -8,7 +8,7 @@
 
 <script>
 import NavBar from "./components/layout/NavBar";
-import Footer from './components/layout/Footer'
+import Footer from "./components/layout/Footer";
 export default {
   name: "App",
   components: {
@@ -480,28 +480,16 @@ h6 {
     margin-left: 8.33333333%;
   }
 }
-
-.overlay {
-  z-index: -1;
-  position: fixed; /* Sit on top of the page content */
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
-}
-
 .login-screen {
-  z-index: 99999;
-  width: 100vw;
-  height: 100vh;
-  margin-left: -10px;
+  background-image: url("./assets/img/banner_4.jpg");
+  height: 110vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
 .app-title {
@@ -584,10 +572,19 @@ input:focus {
 }
 
 .login-link {
+  transition: all .3s;
   font-size: 12px;
   color: #ffffff;
   display: block;
   margin: 12px;
+  padding: 8px;
+  border: none;
+  border-bottom: 2px solid green;
+  background-color: transparent;
+  cursor: pointer;
+}
+.login-link:hover{
+  transform: scale(1.1)
 }
 
 div {
@@ -1126,7 +1123,7 @@ h6 {
 
 .container-lista-leilao {
   margin-top: 50px;
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1339,7 +1336,6 @@ footer {
   color: #fff;
   padding: 60px 0px;
   min-height: 270px;
-  margin-top: 80px;
 }
 
 .sub_footer {

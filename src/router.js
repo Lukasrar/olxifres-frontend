@@ -14,23 +14,27 @@ export default new Router({
     {
       path: "/about",
       name: "about",
-      component: () =>
-        import( "./views/About.vue")
+      component: () => import("./views/About.vue")
     },
     {
-      path: '/login',
-      name: 'login',
-      component: () => import('./views/Login.vue')
+      path: "/login",
+      name: "login",
+      component: () => import("./views/Login.vue")
     },
     {
-      path: '/cadastrar',
-      name: 'cadastrar',
-      component: () => import('./views/Cadastrar.vue')
+      path: "/cadastrar",
+      name: "cadastrar",
+      component: () => import("./views/Cadastrar.vue")
     },
     {
-      path: '/esqueci-senha',
-      name: 'esqueci-senha',
-      component: () => import('./views/EsqueciSenha.vue')
+      path: "/esqueci-senha",
+      name: "esqueci-senha",
+      component: () => import("./views/EsqueciSenha.vue")
+    },
+    {
+      path: "/leiloes",
+      name: "leiloes",
+      component: () => import("./views/Leiloes.vue")
     }
   ]
 });

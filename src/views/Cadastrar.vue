@@ -1,5 +1,5 @@
 <template>
-  <form class="form login login-screen">
+  <form class="form login login-screen" @submit.prevent="fazerRegistro">
     <div v-if="etapa" class="animated fadeInLeft login-form" id="firstForm">
       <div class="app-title">
         <h1>REGISTRO</h1>
@@ -41,7 +41,7 @@
 
       <input type="button" class="btn" value="Continuar registro" @click="etapa = !etapa">
       <div class="links">
-        <a class="login-link" href="login.html">Já possui conta?</a>
+        <a class="login-link" @click="jaPossuiConta">Já possui conta?</a>
       </div>
     </div>
 
@@ -83,7 +83,7 @@
       <input type="submit" class="btn" value="Completar registro">
 
       <div class="links">
-        <a class="login-link" href="login.html">Já possui conta?</a>
+        <a class="login-link" @click="jaPossuiConta">Já possui conta?</a>
       </div>
     </div>
   </form>
@@ -109,9 +109,17 @@ export default {
       cpf: "",
       cep: ""
     };
+  },
+  methods: {
+    fazerLogin() {
+      //
+      console.log("fazendo login....");
+    },
+    jaPossuiConta() {
+      this.$router.push({ name: "login" });
+    }
   }
 };
 </script>
 <style>
-
 </style>

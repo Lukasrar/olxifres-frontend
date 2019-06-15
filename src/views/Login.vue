@@ -21,12 +21,11 @@
         <!-- <input type="submit" class="btn" value="Login"> -->
         <input type="submit" class="btn" value="Login">
         <div class="links">
-          <button class="btn login-link" @click="navegarTelaCadastro">Não possui conta?</button>
-          <button class="btn login-link" @click="navegarEsqueciMinhaSenha">Esqueci minha senha</button>
+          <button class="login-link" @click="navegarTelaCadastro">Não possui conta?</button>
+          <button class="login-link" @click="navegarEsqueciMinhaSenha">Esqueci minha senha</button>
         </div>
       </form>
     </div>
-    <div class="overlay"></div>
   </div>
 </template>
 
