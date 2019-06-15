@@ -6,7 +6,7 @@
           <h3 class="title_section">Leilões em progresso</h3>
         </div>
       </div>
-      <div class="row" style="margin-top: 40px">
+      <div class="row leiloes-ativos" >
         <Leilao/>
         <Leilao/>
         <Leilao/>
@@ -29,4 +29,7 @@ export default {
 </script>
 
 <style>
+.leiloes-ativos{
+  margin-top: 40px; margin-bottom: 50px;
+}
 </style>

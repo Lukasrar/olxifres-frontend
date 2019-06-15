@@ -572,7 +572,7 @@ input:focus {
 }
 
 .login-link {
-  transition: all .3s;
+  transition: all 0.3s;
   font-size: 12px;
   color: #ffffff;
   display: block;
@@ -583,8 +583,8 @@ input:focus {
   background-color: transparent;
   cursor: pointer;
 }
-.login-link:hover{
-  transform: scale(1.1)
+.login-link:hover {
+  transform: scale(1.1);
 }
 
 div {
@@ -1122,12 +1122,11 @@ h6 {
 }
 
 .container-lista-leilao {
-  margin-top: 50px;
-  width: 100vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   align-items: center;
   flex-direction: row;
+  margin: auto;
 }
 
 .destaque_semanal_content {
@@ -1257,11 +1256,11 @@ h6 {
   font-weight: 600;
   color: #1d3119;
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+  margin-top: 25px;
 }
 
 .section_title_container::after {
   display: block;
-  position: absolute;
   top: calc(100% + 13px);
   width: 40%;
   height: 3px;

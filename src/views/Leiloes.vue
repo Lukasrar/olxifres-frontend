@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row">
           <div class="coluna-larg-10 section_title_container">
-            <h2 class="title_section" style="margin-top: 25px">Leilões Ativos</h2>
+            <h2 class="title_section">Leilões Ativos</h2>
           </div>
           <div class="coluna-larg-2" style="margin-top: 25px;padding-left: 130px">
             <input type="radio" name="filtrar_cat" id="filtro">
@@ -28,14 +28,15 @@
             -->
           </div>
         </div>
-        <div class="container-lista-leilao">
-          <LeilaoListagem/>
-          <LeilaoListagem/>
-          <LeilaoListagem/>
-          <LeilaoListagem/>
-          <LeilaoListagem/>
-          <LeilaoListagem/>
-          <LeilaoListagem/>
+        <div class="container">
+          <div class="row container-lista-leilao">
+            <LeilaoListagem/>
+            <LeilaoListagem/>
+            <LeilaoListagem/>
+            <LeilaoListagem/>
+            <LeilaoListagem/>
+            <LeilaoListagem/>
+          </div>
         </div>
       </div>
     </article>
