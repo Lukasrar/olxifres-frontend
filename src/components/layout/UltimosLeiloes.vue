@@ -7,22 +7,37 @@
         </div>
       </div>
       <div class="row">
-        <Leilao/>
-        <Leilao/>
-        <Leilao/>
+        <Leilao v-for="leilao in leiloes" :key="leilao.id_leilao" :idLeilao="leilao.id_leilao"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Leilao from "./Leilao";
+import Leilao from './Leilao';
 
 export default {
-  name: "UltimosLeiloes",
+  name: 'UltimosLeiloes',
   components: {
-    Leilao
-  }
+    Leilao,
+  },
+  data() {
+    return {
+      leiloes: [],
+    };
+  },
+  methods: {
+    async buscarLeiloes() {
+      const params = {
+        limit: 3,
+      };
+
+      this.leiloes = (await this.$api.get('/leiloes', { params })).data.data;
+    },
+  },
+  async mounted() {
+    await this.buscarLeiloes();
+  },
 };
 </script>
 

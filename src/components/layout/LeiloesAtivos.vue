@@ -6,30 +6,43 @@
           <h3 class="title_section">Leilões em progresso</h3>
         </div>
       </div>
-      <div class="row leiloes-ativos" >
-        <Leilao/>
-        <Leilao/>
-        <Leilao/>
-        <Leilao/>
-        <Leilao/>
-        <Leilao/>
+      <div class="row leiloes-ativos">
+        <Leilao v-for="leilao in leiloes" :key="leilao.id_leilao" :idLeilao="leilao.id_leilao"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Leilao from "./Leilao";
+import Leilao from './Leilao';
 export default {
-  name: "LeiloesAtivo",
+  name: 'LeiloesAtivo',
   components: {
-    Leilao
-  }
+    Leilao,
+  },
+  data() {
+    return {
+      leiloes: [],
+    };
+  },
+  methods: {
+    async buscarLeiloesAtivos() {
+      const params = {
+        status: 1,
+        limit: 6,
+      };
+      this.leiloes = (await this.$api.get('/leiloes', { params })).data.data;
+    },
+  },
+  async mounted() {
+    await this.buscarLeiloesAtivos();
+  },
 };
 </script>
 
 <style>
-.leiloes-ativos{
-  margin-top: 40px; margin-bottom: 50px;
+.leiloes-ativos {
+  margin-top: 40px;
+  margin-bottom: 50px;
 }
 </style>
