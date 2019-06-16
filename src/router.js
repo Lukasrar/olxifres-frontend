@@ -41,5 +41,10 @@ export default new Router({
       name: 'leilao',
       component: () => import('./views/Leilao.vue'),
     },
+    {
+      path: '/criar-leilao',
+      name: 'criar-leilao',
+      component: () => import('./views/CriarLeilao.vue'),
+    },
   ],
 });

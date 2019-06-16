@@ -1,6 +1,7 @@
 <template>
   <section>
     <article>
+      <HeaderInterno v-bind:view="view"/>
       <div class="container">
         <div class="row">
           <div class="coluna-larg-10 section_title_container">
@@ -45,11 +46,18 @@
 
 <script>
 import LeilaoListagem from '../components/layout/LeilaoListagem';
+import HeaderInterno from '../components/layout/HeaderInterno';
 
 export default {
   name: 'Leiloes',
   components: {
     LeilaoListagem,
+    HeaderInterno,
+  },
+  data(){
+    return{
+      view: 'Crie seu próprio leilão'
+    }
   },
   async mounted() {
     const leiloes = (await this.$api.get('/leiloes')).data.data;

@@ -1,13 +1,12 @@
 <template>
-  <div class="main_banner">
+  <div class="main_banner_interno">
     <div class="container height_100">
       <div class="main_banner_content_container height_100">
         <div class="main_banner_content">
           <h4 class="sec_main_title">Leilão de gado online - temporada 2/2019</h4>
-          <h1 class="main_title">O comércio agropecuário a um clique de distância</h1>
           <div class="ver_mais_btn">
             <router-link to="/">Explorar</router-link>
-            <router-link to="/criar-leilao" class="criar_leilao">Crie seu próprio leilão</router-link>
+            <router-link to="/criar-leilao" class="criar_leilao">{{view}}</router-link>
           </div>
         </div>
       </div>
@@ -17,7 +16,13 @@
 
 <script>
 export default {
-  name: 'Header',
+  name: 'HeaderInterno',
+  props: ['view'],
+  data() {
+    return {
+      view: this.view,
+    };
+  },
 };
 </script>
 
