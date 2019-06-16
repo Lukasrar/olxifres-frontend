@@ -41,7 +41,7 @@
 
       <input type="button" class="btn" value="Continuar registro" @click="etapa = !etapa">
       <div class="links">
-        <a class="login-link" @click="jaPossuiConta">Já possui conta?</a>
+        <a class="login-link" @click="$router.push({ name: 'login' })">Já possui conta?</a>
       </div>
     </div>
 
@@ -83,7 +83,7 @@
       <input type="submit" class="btn" value="Completar registro">
 
       <div class="links">
-        <a class="login-link" @click="this.$router.push({ name: 'login' })">Já possui conta?</a>
+        <a class="login-link" @click="$router.push({ name: 'login' })">Já possui conta?</a>
       </div>
     </div>
   </form>
