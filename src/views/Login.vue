@@ -2,7 +2,7 @@
   <div class="login">
     <div class="login-screen">
       <div class="app-title">
-        <h1>LOGIN</h1>
+        <h1 class="app-title">LOGIN</h1>
       </div>
       <form class="login-form" @submit.prevent="fazerLogin">
         <div class="control-group">

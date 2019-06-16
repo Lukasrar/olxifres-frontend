@@ -1,9 +1,7 @@
 <template>
   <form class="form login login-screen" @submit.prevent="fazerRegistro">
     <div v-if="etapa" class="animated fadeInLeft login-form" id="firstForm">
-      <div class="app-title">
-        <h1>REGISTRO</h1>
-      </div>
+      <h1 class="app-title">REGISTRO</h1>
 
       <div class="control-group">
         <label for="name" class="label-form">Nome</label>

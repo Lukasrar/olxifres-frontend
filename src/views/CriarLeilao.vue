@@ -122,10 +122,12 @@ export default {
   flex-direction: column;
   margin: 20px;
 }
+
 .label-info {
   color: green;
   font-weight: bold;
 }
+
 .input-info {
   width: 100%;
   border: none;

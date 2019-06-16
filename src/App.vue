@@ -481,7 +481,7 @@ h6 {
   }
 }
 .login-screen {
-  background-image: url('./assets/img/banner_4.jpg');
+  background-image: url('./assets/img/bg-overlay.jpg');
   height: 110vh;
   display: flex;
   justify-content: center;
@@ -491,6 +491,7 @@ h6 {
   background-position: center center;
   background-size: cover;
 }
+
 
 .app-title {
   margin-top: 15px;
