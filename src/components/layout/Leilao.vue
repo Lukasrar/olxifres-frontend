@@ -11,7 +11,7 @@
         <a>MG</a>
       </div>
       <div class="ultimos_leiloes_nome">
-        <a href="#">Tostão negro</a>
+        <a href="#" :title="racaAnimal">{{ racaAnimal }}</a>
       </div>
     </div>
   </div>
@@ -26,6 +26,12 @@ export default {
       type: Number,
       default() {
         return null;
+      },
+    },
+    racaAnimal: {
+      type: String,
+      default() {
+        return '';
       },
     },
   },

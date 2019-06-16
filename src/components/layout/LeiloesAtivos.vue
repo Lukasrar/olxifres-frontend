@@ -7,7 +7,12 @@
         </div>
       </div>
       <div class="row leiloes-ativos">
-        <Leilao v-for="leilao in leiloes" :key="leilao.id_leilao" :idLeilao="leilao.id_leilao"/>
+        <Leilao
+          v-for="leilao in leiloes"
+          :key="leilao.id_leilao"
+          :idLeilao="leilao.id_leilao"
+          :racaAnimal="leilao.raca"
+        />
       </div>
     </div>
   </div>

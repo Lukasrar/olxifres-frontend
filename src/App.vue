@@ -7,20 +7,20 @@
 </template>
 
 <script>
-import NavBar from "./components/layout/NavBar";
-import Footer from "./components/layout/Footer";
+import NavBar from './components/layout/NavBar';
+import Footer from './components/layout/Footer';
 export default {
-  name: "App",
+  name: 'App',
   components: {
     NavBar,
-    Footer
-  }
+    Footer,
+  },
 };
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css?family=Hind");
-@import url("https://fonts.googleapis.com/css?family=Fira+Sans+Condensed");
+@import url('https://fonts.googleapis.com/css?family=Hind');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans+Condensed');
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 
 * {
@@ -39,9 +39,9 @@ textarea {
 }
 
 button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
   -webkit-appearance: button;
   cursor: pointer;
 }
@@ -481,7 +481,7 @@ h6 {
   }
 }
 .login-screen {
-  background-image: url("./assets/img/banner_4.jpg");
+  background-image: url('./assets/img/banner_4.jpg');
   height: 110vh;
   display: flex;
   justify-content: center;
@@ -601,7 +601,7 @@ ul {
 }
 
 p {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 14px;
   line-height: 1.2;
   font-weight: 500;
@@ -723,7 +723,7 @@ h6 {
 .header .menu-icon .navicon:before,
 .header .menu-icon .navicon:after {
   background: #333;
-  content: "";
+  content: '';
   display: block;
   height: 100%;
   position: absolute;
@@ -804,7 +804,7 @@ h6 {
 
 .main_banner {
   height: 650px;
-  background-image: url("./assets/img/banner_4.jpg");
+  background-image: url('./assets/img/banner_4.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -960,7 +960,7 @@ h6 {
   font-weight: 500;
   text-transform: uppercase;
   line-height: 1;
-  font-family: "Fira Sans Condensed", sans-serif;
+  font-family: 'Fira Sans Condensed', sans-serif;
   margin-bottom: 5px;
   text-shadow: 1px 1px 4px rgb(224, 205, 205);
 }
@@ -978,7 +978,7 @@ h6 {
   font-size: 65px;
   font-weight: 400;
   line-height: 1;
-  font-family: "Fira Sans Condensed", sans-serif;
+  font-family: 'Fira Sans Condensed', sans-serif;
   text-shadow: 1px 2px 4px rgb(224, 205, 205);
 }
 
@@ -991,7 +991,7 @@ h6 {
   text-align: center;
   line-height: 40px;
   width: 100%;
-  font-family: "Hind", sans-serif;
+  font-family: 'Hind', sans-serif;
   letter-spacing: 0.5px;
   text-shadow: 1px 1px 3px #201f1d;
 }
@@ -1057,6 +1057,7 @@ h6 {
   height: 35px;
   padding-left: 25px;
   padding-right: 25px;
+  overflow: hidden;
 }
 
 .ultimos_leiloes_estado {
@@ -1151,7 +1152,7 @@ h6 {
   width: 60px;
   height: 5px;
   background: #078a06;
-  content: "";
+  content: '';
 }
 
 .detalhamento {
@@ -1251,7 +1252,7 @@ h6 {
 }
 
 .title_section {
-  font-family: "Hind", sans-serif;
+  font-family: 'Hind', sans-serif;
   font-size: 25px;
   font-weight: 600;
   color: #1d3119;
@@ -1265,7 +1266,7 @@ h6 {
   width: 40%;
   height: 3px;
   background: #34aa10;
-  content: "";
+  content: '';
 }
 
 /*********************************
@@ -1306,7 +1307,7 @@ Lista leilões
   padding-left: 35px;
   font-weight: 600;
   font-size: 23px;
-  font-family: "Hind", sans-serif;
+  font-family: 'Hind', sans-serif;
   color: #1d3119;
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
   background-image: url(./assets/img/filter_icon.png);
@@ -1317,12 +1318,12 @@ Lista leilões
   display: block;
 }
 
-input[type="radio"] {
+input[type='radio'] {
   display: none;
   position: absolute;
 }
 
-input[type="radio"]:checked ~ ul li {
+input[type='radio']:checked ~ ul li {
   color: yellow;
   transform: translateY(0);
 }
@@ -1347,7 +1348,7 @@ footer {
 }
 
 .footer_links_title {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 18px;
   color: #fff;
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
@@ -1355,7 +1356,7 @@ footer {
 }
 
 .footer_links_about {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 14px;
   color: #acaab3;
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
@@ -1371,7 +1372,7 @@ footer {
   width: 20%;
   height: 1px;
   background: #c7ccc7;
-  content: "";
+  content: '';
 }
 
 .footer_links {
