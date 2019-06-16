@@ -44,13 +44,17 @@
 </template>
 
 <script>
-import LeilaoListagem from "../components/layout/LeilaoListagem";
+import LeilaoListagem from '../components/layout/LeilaoListagem';
 
 export default {
-  name: "Leiloes",
+  name: 'Leiloes',
   components: {
-    LeilaoListagem
-  }
+    LeilaoListagem,
+  },
+  async mounted() {
+    const leiloes = (await this.$api.get('/leiloes')).data.data;
+    console.log(leiloes);
+  },
 };
 </script>
 

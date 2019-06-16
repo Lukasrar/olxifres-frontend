@@ -83,7 +83,7 @@
       <input type="submit" class="btn" value="Completar registro">
 
       <div class="links">
-        <a class="login-link" @click="jaPossuiConta">Já possui conta?</a>
+        <a class="login-link" @click="this.$router.push({ name: 'login' })">Já possui conta?</a>
       </div>
     </div>
   </form>
@@ -91,34 +91,30 @@
 
 <script>
 export default {
-  name: "Cadastrar",
+  name: 'Cadastrar',
   data() {
     return {
       etapa: true,
-      nome: "",
-      senha: "",
-      confSenha: "",
-      email: "",
-      cpf: "",
-      telefone: "",
-      cidade: "",
-      estado: "",
-      logradouro: "",
-      bairro: "",
-      numero: "",
-      cpf: "",
-      cep: ""
+      nome: '',
+      senha: '',
+      confSenha: '',
+      email: '',
+      telefone: '',
+      cidade: '',
+      estado: '',
+      logradouro: '',
+      bairro: '',
+      numero: '',
+      cpf: '',
+      cep: '',
     };
   },
   methods: {
     fazerLogin() {
       //
-      console.log("fazendo login....");
+      console.log('fazendo login....');
     },
-    jaPossuiConta() {
-      this.$router.push({ name: "login" });
-    }
-  }
+  },
 };
 </script>
 <style>
