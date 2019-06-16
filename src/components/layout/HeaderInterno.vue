@@ -17,12 +17,11 @@
 <script>
 export default {
   name: 'HeaderInterno',
-  props: ['view'],
-  data() {
-    return {
-      view: this.view,
-    };
-  },
+  props:  {
+    view:{
+      default: 'Crie seu próprio leilão!'
+    }
+  }
 };
 </script>
 

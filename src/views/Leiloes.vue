@@ -1,7 +1,7 @@
 <template>
   <section>
     <article>
-      <HeaderInterno v-bind:view="view"/>
+      <HeaderInterno/>
       <div class="container">
         <div class="row">
           <div class="coluna-larg-10 section_title_container">
