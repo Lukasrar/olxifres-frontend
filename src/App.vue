@@ -987,6 +987,10 @@ h6 {
     padding: 10px;
     border-radius: 5px;
   }
+  .dropdown{
+    display: flex;
+    flex-direction: column !important;
+  }
 }
 
 .main_banner_content .main_title {
