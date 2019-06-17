@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeaderInterno v-bind:view="view"/>
+    <HeaderInterno v-bind:view="view" v-bind:rota="rota"/>
     <div class="container">
       <div class="row align-items-center">
         <div class="content_page">
@@ -84,6 +84,7 @@ export default {
   data() {
     return {
       view: 'Veja os leilões ativos',
+      rota: '/leiloes',
       raca: '',
       nascimento: '',
       cor: '',

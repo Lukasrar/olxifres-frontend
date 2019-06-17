@@ -6,7 +6,7 @@
           <h4 class="sec_main_title">Leilão de gado online - temporada 2/2019</h4>
           <div class="ver_mais_btn">
             <router-link to="/">Explorar</router-link>
-            <router-link to="/criar-leilao" class="criar_leilao">{{view}}</router-link>
+            <router-link :to="{path: rota}" class="criar_leilao">{{view}}</router-link>
           </div>
         </div>
       </div>
@@ -20,6 +20,9 @@ export default {
   props:  {
     view:{
       default: 'Crie seu próprio leilão!'
+    },
+    rota: {
+      default: '/criar-leilao'
     }
   }
 };
