@@ -51,5 +51,10 @@ export default new Router({
       name: 'contato',
       component: () => import('./views/Contato.vue'),
     },
+    {
+      path: '/editar-conta',
+      name: 'editar-conta',
+      component: () => import('./views/EditarConta.vue'),
+    },
   ],
 });

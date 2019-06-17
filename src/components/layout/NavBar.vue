@@ -50,10 +50,10 @@
       </li>
       <li>
         <transition name="slide-fade">
-          <div v-if="dropDown" class="dropdown">
+          <div v-if="dropDown" class="dropdown" v-on:click="dropDown = !dropDown; active = !active">
             <router-link tag="a" to="/login">Login</router-link>
             <router-link tag="a" to="/cadastrar">Registro</router-link>
-            <router-link tag="a" to="/cadastrar">Editar Conta</router-link>
+            <router-link tag="a" to="/editar-conta">Editar Conta</router-link>
           </div>
         </transition>
       </li>

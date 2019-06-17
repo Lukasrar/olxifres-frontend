@@ -8,15 +8,7 @@
       <p class="info">seila</p>
     </div>
     <div class="container-info">
-      <p class="info">Idade:</p>
-      <p class="info">seila</p>
-    </div>
-    <div class="container-info">
       <p class="info">Cor:</p>
-      <p class="info">seila</p>
-    </div>
-    <div class="container-info">
-      <p class="info">Lance:</p>
       <p class="info">seila</p>
     </div>
     <div class="container-info">
@@ -53,7 +45,8 @@ export default {
 }
 
 .foto-log {
-  width: 100px;
+  width: 80px;
+  border-radius: 5px;
 }
 
 .container-info {

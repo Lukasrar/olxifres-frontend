@@ -44,9 +44,8 @@
     </div>
 
     <div v-if="!etapa" class="animated fadeInLeft login-form" id="secondForm" action="/registrar">
-      <div class="app-title">
-        <h1>REGISTRO</h1>
-      </div>
+      <h1 class="app-title">REGISTRO</h1>
+
       <div class="control-group">
         <label for="cidade" class="label-form">Cidade</label>
         <input type="text" class="login-field" placeholder="Informe a cidade" v-model="cidade">
