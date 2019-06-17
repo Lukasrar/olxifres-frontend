@@ -31,12 +31,7 @@
         </div>
         <div class="container">
           <div class="row container-lista-leilao">
-            <LeilaoListagem/>
-            <LeilaoListagem/>
-            <LeilaoListagem/>
-            <LeilaoListagem/>
-            <LeilaoListagem/>
-            <LeilaoListagem/>
+            <Leilao v-for="leilao in leiloes" :key="leilao.id_leilao" :racaAnimal="leilao.raca" :lanceMinimo="leilao.lance_minimo" :idLeilao="leilao.id_leilao"/>
           </div>
         </div>
       </div>
@@ -45,22 +40,23 @@
 </template>
 
 <script>
-import LeilaoListagem from '../components/layout/LeilaoListagem';
+import Leilao from '../components/layout/Leilao';
 import HeaderInterno from '../components/layout/HeaderInterno';
 
 export default {
   name: 'Leiloes',
   components: {
-    LeilaoListagem,
+    Leilao,
     HeaderInterno,
   },
-  data(){
-    return{
-      view: 'Crie seu próprio leilão'
-    }
+  data() {
+    return {
+      view: 'Crie seu próprio leilão',
+      leiloes: ''
+    };
   },
   async mounted() {
-    const leiloes = (await this.$api.get('/leiloes')).data.data;
+    this.leiloes = (await this.$api.get('/leiloes')).data.data;
     console.log(leiloes);
   },
 };

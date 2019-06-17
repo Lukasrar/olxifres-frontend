@@ -6,7 +6,7 @@
           <form>
             <h2
               class="title_section"
-            >Olá {{nome}}, aqui você pode editar algumas informações da sua conta.</h2>
+            >Olá {{usuario.nome}}, aqui você pode editar algumas informações da sua conta.</h2>
             <p
               class="help bolder"
               v-if="!editar"
@@ -20,9 +20,10 @@
             <div class="input-group">
               <label for="email" class="label-info">Email:</label>
               <input
+                class="input-info"
                 type="text"
                 id="email"
-                :value="email"
+                :value="usuario.email"
                 :disabled="!editar"
                 :class="{'editavel': editar}"
               >
@@ -30,6 +31,7 @@
             <div class="input-group">
               <label for="senha" class="label-info">Senha:</label>
               <input
+                class="input-info"
                 type="text"
                 id="senha"
                 :value="senha"
@@ -39,14 +41,15 @@
             </div>
             <div class="input-group">
               <label for="cpf" class="label-info">CPF:</label>
-              <span>{{cpf}}</span>
+              <span>{{usuario.cpf}}</span>
             </div>
             <div class="input-group">
               <label for="telefone" class="label-info">Telefone:</label>
               <input
+                class="input-info"
                 type="text"
                 id="telefone"
-                :value="telefone"
+                :value="usuario.telefone"
                 :disabled="!editar"
                 :class="{'editavel': editar}"
               >
@@ -54,9 +57,10 @@
             <div class="input-group">
               <label for="cidade" class="label-info">Cidade:</label>
               <input
+                class="input-info"
                 type="text"
                 id="cidade"
-                :value="cidade"
+                :value="usuario.cidade"
                 :disabled="!editar"
                 :class="{'editavel': editar}"
               >
@@ -64,9 +68,10 @@
             <div class="input-group">
               <label for="estado" class="label-info">Estado:</label>
               <input
+                class="input-info"
                 type="text"
                 id="estado"
-                :value="estado"
+                :value="usuario.estado"
                 :disabled="!editar"
                 :class="{'editavel': editar}"
               >
@@ -74,9 +79,10 @@
             <div class="input-group">
               <label for="logradouro" class="label-info">Logradouro:</label>
               <input
+                class="input-info"
                 type="text"
                 id="logradouro"
-                :value="logradouro"
+                :value="usuario.logradouro"
                 :disabled="!editar"
                 :class="{'editavel': editar}"
               >
@@ -84,9 +90,10 @@
             <div class="input-group">
               <label for="bairro" class="label-info">Bairro:</label>
               <input
+                class="input-info"
                 type="text"
                 id="bairro"
-                :value="bairro"
+                :value="usuario.bairro"
                 :disabled="!editar"
                 :class="{'editavel': editar}"
               >
@@ -94,9 +101,10 @@
             <div class="input-group">
               <label for="numero" class="label-info">Numero:</label>
               <input
+                class="input-info"
                 type="text"
                 id="numero"
-                :value="numero"
+                :value="usuario.numero"
                 :disabled="!editar"
                 :class="{'editavel': editar}"
               >
@@ -104,9 +112,10 @@
             <div class="input-group">
               <label for="cep" class="label-info">CEP:</label>
               <input
+                class="input-info"
                 type="text"
                 id="cep"
-                :value="cep"
+                :value="usuario.cep"
                 :disabled="!editar"
                 :class="{'editavel': editar}"
               >
@@ -137,9 +146,10 @@
 
 <script>
 import LogLeilaoAtivo from '../components/layout/LogLeilaoAtivo';
+import { mapGetters } from 'vuex';
 
 export default {
-  name: 'EditarConta',
+  name: 'MinhaConta',
   components: {
     LogLeilaoAtivo,
   },
@@ -161,6 +171,9 @@ export default {
       cep: '38408389',
     };
   },
+  computed: {
+    ...mapGetters({ usuario: 'getUsuario' }),
+  },
   methods: {
     salvar() {
       //faz algo
@@ -177,8 +190,8 @@ export default {
   color: white;
 }
 
-.btn:hover{
-    transform: scale(1.05)
+.btn:hover {
+  transform: scale(1.05);
 }
 
 .cancel {

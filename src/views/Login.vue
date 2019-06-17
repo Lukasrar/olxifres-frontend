@@ -50,8 +50,8 @@ export default {
   name: 'Login',
   data() {
     return {
-      email: '',
-      senha: '',
+      email: 'luiz.fernando@hotmail.com',
+      senha: 'luiz123',
       errouLogin: false,
       emailInvalido: false,
       senhaInvalida: false,
@@ -83,6 +83,7 @@ export default {
       try {
         const usuario = (await this.$api.post('/login', { email, senha })).data.data[0];
         this.setUsuario(usuario);
+        this.$router.push({name : 'leiloes'})
       } catch (err) {
         const informacoesIncorretas = !!err.response.data.error;
         this.errouLogin = true;

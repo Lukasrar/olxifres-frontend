@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
+import store from './store';
 
 Vue.use(Router);
 
@@ -52,9 +53,16 @@ export default new Router({
       component: () => import('./views/Contato.vue'),
     },
     {
-      path: '/editar-conta',
-      name: 'editar-conta',
-      component: () => import('./views/EditarConta.vue'),
+      path: '/minha-conta',
+      name: 'minha-conta',
+      component: () => import('./views/MinhaConta.vue'),
+      beforeEnter: (to, from, next) => {
+        if (!store.state.usuario) {
+          return next('login');
+        }
+
+        return next();
+      },
     },
   ],
 });

@@ -8,7 +8,7 @@
       style="background-image:url(../../assets/img/banner_1.jpg)"
     >
       <div class="ultimos_leiloes_estado">
-        <a>MG</a>
+        <a>R${{lanceMinimo}}</a>
       </div>
       <div class="ultimos_leiloes_nome">
         <a href="#" :title="racaAnimal">{{ racaAnimal }}</a>
@@ -34,6 +34,12 @@ export default {
         return '';
       },
     },
+    lanceMinimo:{
+      type: Number,
+      default(){
+        return null
+      }
+    }
   },
 };
 </script>
