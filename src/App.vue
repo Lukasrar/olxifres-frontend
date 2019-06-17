@@ -1073,9 +1073,15 @@ h6 {
     padding: 10px;
     border-radius: 5px;
   }
-  .dropdown {
+  .login-container{
     display: flex;
     flex-direction: column !important;
+  }
+  .ver_mais_btn{
+    width: 90vw !important;
+  }
+  .ver_mais_btn a{
+    width: 100%;
   }
 }
 
