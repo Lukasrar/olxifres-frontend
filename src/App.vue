@@ -539,6 +539,13 @@ h6 {
   padding-bottom: 20px;
 }
 
+.help-log {
+  background-color: darkred;
+  color: white;
+  border-radius: 5px;
+  padding: 3px;
+}
+
 .label-info {
   color: green;
   font-weight: bold;
@@ -749,6 +756,18 @@ h6 {
   padding: 28px 20px;
   position: relative;
   user-select: none;
+}
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease-in;
+}
+.slide-fade-leave-active {
+  transition: all 0.3s ease-out;
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active em versões anteriores a 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
 }
 
 .header .menu-icon .navicon {

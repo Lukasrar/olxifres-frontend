@@ -4,7 +4,7 @@
       <div class="app-title">
         <h1 class="app-title">LOGIN</h1>
       </div>
-      <form class="login-form" @submit.prevent="fazerLogin">
+      <form class="login-form" @submit.prevent="validaForm">
         <div v-if="errouLogin" class="login_mensagem-erro">
           <h3 class="login_mensagem-erro_title">Usuário ou senha incorreto!</h3>
           <p>Houve um erro ao realizar seu login, por gentileza confirme suas informações e tente novamente</p>
@@ -12,6 +12,9 @@
         <div class="control-group">
           <label class="label-form">E-mail</label>
           <input v-model="email" type="email" class="login-field" placeholder="Informe seu e-mail">
+          <transition name="slide-fade">
+            <p class="help-log" v-if="emailInvalido">Favor, insira um e-mail válido.</p>
+          </transition>
         </div>
         <div class="control-group">
           <label for="login-pass" class="label-form">Senha</label>
@@ -21,6 +24,9 @@
             class="login-field"
             placeholder="Informe sua senha"
           >
+          <transition name="slide-fade">
+            <p class="help-log" v-if="senhaInvalida">Favor, insira uma senha válida.</p>
+          </transition>
         </div>
         <!-- <input type="submit" class="btn" value="Login"> -->
         <input type="submit" class="btn" value="Login">
@@ -38,6 +44,7 @@
 
 <script>
 import { mapActions } from 'vuex';
+import { setTimeout } from 'timers';
 
 export default {
   name: 'Login',
@@ -46,9 +53,29 @@ export default {
       email: '',
       senha: '',
       errouLogin: false,
+      emailInvalido: false,
+      senhaInvalida: false,
     };
   },
   methods: {
+    validaForm() {
+      if (this.email.trim() == '') {
+        this.emailInvalido = true;
+
+        setTimeout(() => {
+          this.emailInvalido = false;
+        }, 2000);
+      } else if (this.senha.trim() == '') {
+        this.senhaInvalida = true;
+
+        setTimeout(() => {
+          this.senhaInvalida = false;
+        }, 2000);
+      } else {
+        this.fazerLogin();
+      }
+    },
+
     ...mapActions(['setUsuario']),
     async fazerLogin() {
       const { email, senha } = this;

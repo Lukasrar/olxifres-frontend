@@ -10,22 +10,22 @@
     <input class="menu-btn" type="checkbox" id="menu-btn">
     <ul class="menu">
       <transition name="slide-fade">
-        <li v-if="!dropDown">
+        <li v-if="!mostra">
           <router-link tag="a" to="/">Início</router-link>
         </li>
       </transition>
       <transition name="slide-fade">
-        <li v-if="!dropDown">
+        <li v-if="!mostra">
           <router-link tag="a" to="/leiloes">Leilões</router-link>
         </li>
       </transition>
       <transition name="slide-fade">
-        <li v-if="!dropDown">
+        <li v-if="!mostra">
           <router-link tag="a" to="/about">Sobre nós</router-link>
         </li>
       </transition>
       <transition name="slide-fade">
-        <li v-if="!dropDown">
+        <li v-if="!mostra">
           <router-link tag="a" to="/contato">Contato</router-link>
         </li>
       </transition>
@@ -34,15 +34,13 @@
           <a
             class="fa fa-user"
             aria-hidden="true"
-            v-if="!dropDown"
-            v-on:click="dropDown = !dropDown; active = !active"
+            v-if="!mostra"
+            v-on:click="mostra = !mostra; active = !active"
           ></a>
           <a
-            class="fa fa-user"
-            aria-hidden="true"
             v-bind:class="{'active': active}"
-            v-if="dropDown"
-            v-on:click="dropDown = !dropDown; active = !active"
+            v-if="mostra"
+            v-on:click="mostra = !mostra; active = !active"
           >
             <span>Cancelar</span>
           </a>
@@ -50,7 +48,7 @@
       </li>
       <li>
         <transition name="slide-fade">
-          <div v-if="dropDown" class="dropdown" v-on:click="dropDown = !dropDown; active = !active">
+          <div v-if="mostra" class="login-container" v-on:click="mostra = !mostra; active = !active">
             <router-link tag="a" to="/login">Login</router-link>
             <router-link tag="a" to="/cadastrar">Registro</router-link>
             <router-link tag="a" to="/editar-conta">Editar Conta</router-link>
@@ -69,7 +67,7 @@ export default {
   name: 'NavBar',
   data() {
     return {
-      dropDown: false,
+      mostra: false,
       active: false,
     };
   },
@@ -77,19 +75,8 @@ export default {
 </script>
 
 <style scoped>
-.slide-fade-enter-active {
-  transition: all 0.3s ease-in;
-}
-.slide-fade-leave-active {
-  transition: all 0.3s ease-out;
-}
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active em versões anteriores a 2.1.8 */ {
-  transform: translateX(10px);
-  opacity: 0;
-}
 
-.dropdown {
+.login-container {
   display: flex;
   justify-content: center;
   text-align: center;
