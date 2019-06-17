@@ -2,7 +2,9 @@
   <header class="header">
     <div class="coluna-small-5 coluna-larg-2">
       <div class="container-logo">
-        <router-link tag="a" to="/" class="logo">LOGO</router-link>
+        <router-link tag="a" to="/" >
+          <img class="logo" src="../../assets/img/logo.png">
+        </router-link>
       </div>
     </div>
     <input class="menu-btn" type="checkbox" id="menu-btn">

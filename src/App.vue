@@ -481,7 +481,7 @@ h6 {
   }
 }
 .login-screen {
-  background-image: url('./assets/img/banner_4.jpg');
+  background-image: url('./assets/img/bg-overlay.jpg');
   height: 110vh;
   display: flex;
   justify-content: center;
@@ -791,15 +791,13 @@ h6 {
 }
 
 .logo {
-  font-size: 32px;
-  color: #201f1d;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-shadow: rgba(0, 0, 0, 0.2) 0px 0px 1px;
+  width: 150px;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
-.logo span {
-  color: #078a06;
+.logo:hover {
+  transform: scale(1.05);
 }
 
 .main_banner {
@@ -980,6 +978,14 @@ h6 {
   }
   .container-lista-leilao {
     flex-direction: column !important;
+  }
+  .menu li a {
+    color: white;
+    font-weight: bold;
+    background-color: #078a06;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
   }
 }
 
