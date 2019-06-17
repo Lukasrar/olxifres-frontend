@@ -21,28 +21,25 @@
           <h3 class="footer_links_title">Menu</h3>
           <ul class="footer_links">
             <li>
-              <a href="#">Início</a>
+              <router-link tag="a" to="/">Início</router-link>
             </li>
             <li>
-              <a href="#">Lista de leilões</a>
+              <router-link tag="a" to="/leiloes">Leilões</router-link>
             </li>
             <li>
-              <a href="#">Sobre nós</a>
+              <router-link tag="a" to="/about">Sobre nós</router-link>
             </li>
             <li>
-              <a href="contact.html">Entrar em contato</a>
+              <router-link tag="a" to="/contato">Contato</router-link>
             </li>
             <li>
-              <a href="#">Ver perfil</a>
+              <router-link tag="a" to="/editar-conta">Editar Conta</router-link>
             </li>
             <li>
-              <a href="#">Destaque da semana</a>
+              <router-link tag="a" to="/cadastrar">Registro</router-link>
             </li>
             <li>
-              <a href="#">Cadastrar-se</a>
-            </li>
-            <li>
-              <a href="#">Entrar no sistema</a>
+              <router-link tag="a" to="/login">Login</router-link>
             </li>
           </ul>
         </div>
@@ -91,7 +88,7 @@
 
 <script>
 export default {
-  name: "Footer"
+  name: 'Footer',
 };
 </script>
 
