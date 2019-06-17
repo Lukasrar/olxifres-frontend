@@ -512,6 +512,46 @@ h6 {
   margin-bottom: 5px;
 }
 
+.container-registro {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin: 50px 0 50px 0;
+}
+
+.form-registro-animal {
+  margin: 20px;
+  flex-direction: column;
+}
+
+.container-logs-leiloes {
+  margin: 20px;
+  display: flex;
+  justify-content: right;
+  flex-direction: column;
+}
+
+.input-group {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.label-info {
+  color: green;
+  font-weight: bold;
+}
+
+.input-info {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid green;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
 .control-group {
   margin-bottom: 10px;
   display: flex;
@@ -893,6 +933,33 @@ h6 {
   padding: 5px;
   margin-bottom: 10px;
 }
+.help {
+  color: #024e02;
+}
+
+.bolder {
+  font-weight: bold;
+  padding: 5px;
+}
+.editavel {
+  border: 2px solid green;
+  color: #078a06;
+  font-weight: bold;
+}
+
+.input-group {
+  margin: 10px 0 10px 0;
+}
+
+.alert {
+  width: 100%;
+  background-color: #34aa10;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0 10px 0;
+  opacity: 0.9;
+}
 
 .btn-lance {
   text-align: center;
@@ -987,7 +1054,7 @@ h6 {
     padding: 10px;
     border-radius: 5px;
   }
-  .dropdown{
+  .dropdown {
     display: flex;
     flex-direction: column !important;
   }
@@ -1450,7 +1517,7 @@ Página de contato
   text-transform: uppercase;
 }
 
-@media screen and (min-width:1200px) {
+@media screen and (min-width: 1200px) {
   .main_title_2::after {
     position: absolute;
     top: calc(50%);

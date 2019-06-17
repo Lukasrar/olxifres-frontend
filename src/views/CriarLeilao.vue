@@ -99,45 +99,6 @@ export default {
 </script>
 
 <style scoped>
-.container-registro {
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  margin: 50px 0 50px 0;
-}
-
-.form-registro-animal {
-  margin: 20px;
-  flex-direction: column;
-}
-
-.container-logs-leiloes {
-  margin: 20px;
-  display: flex;
-  justify-content: right;
-  flex-direction: column;
-}
-
-.input-group {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin: 20px;
-}
-
-.label-info {
-  color: green;
-  font-weight: bold;
-}
-
-.input-info {
-  width: 100%;
-  border: none;
-  border-bottom: 2px solid green;
-  margin-top: 5px;
-}
-
 .btn {
   width: 100%;
   background-color: green;
