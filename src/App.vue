@@ -971,7 +971,7 @@ h6 {
   line-height: 1;
   font-family: 'Fira Sans Condensed', sans-serif;
   margin-bottom: 5px;
-  text-shadow: 1px 1px 4px rgb(224, 205, 205);
+  text-shadow: 1px 1px 4px rgb(255, 255, 255);
 }
 
 @media (max-width: 600px) {
@@ -1183,7 +1183,7 @@ h6 {
 
 .fab {
   font-size: 25px !important;
-  margin: 8px;
+  margin: 8px 10px 8px 0px;
 }
 
 .descricao {
@@ -1408,5 +1408,155 @@ footer {
 .footer_links a:hover {
   color: #fff;
   text-shadow: none;
+}
+
+/*********************************
+Página de contato
+*********************************/
+
+.main_banner_300 {
+  height: 300px !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-attachment: fixed;
+}
+
+.banner_4 {
+  background-image: url('./assets/img/banner_4.jpg');
+}
+
+.container_page {
+  margin: 80px 0px 120px 0px;
+}
+
+.main_title_2 {
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width:1200px) {
+  .main_title_2::after {
+    position: absolute;
+    top: calc(50%);
+    right: calc(50% + 150px);
+    width: 15%;
+    height: 1.5px;
+    background: #34aa10;
+    content: '';
+  }
+
+  .main_title_2::before {
+    position: absolute;
+    top: calc(50%);
+    right: calc(50% - 330px);
+    width: 15%;
+    height: 1.5px;
+    background: #34aa10;
+    content: '';
+  }
+}
+
+.content_page {
+  margin: 30px 0px;
+  width: 100%;
+}
+
+.descritive_paragraph {
+  text-align: justify;
+  font-size: 14.5px;
+  color: #000;
+  line-height: 25px;
+}
+
+.icon_st_1 {
+  font-size: 25px !important;
+  vertical-align: middle;
+  margin: 2.5px 10px 2.5px 0px;
+}
+
+.sub_title {
+  display: block;
+  text-align: left;
+  font-size: 17px;
+  color: #000;
+  font-weight: bold;
+  margin: 40px 0px 5px;
+}
+
+.social_desc {
+  font-size: 14px;
+  color: #282828;
+  text-decoration: underline;
+}
+
+.social_desc:after {
+  content: ' ';
+  display: block;
+}
+
+.social_desc:hover {
+  cursor: pointer;
+  color: #071d0d;
+}
+
+.descritive_paragraph .link {
+  color: blue;
+  text-decoration: underline;
+}
+
+.descritive_paragraph .link:hover {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.contact_desc {
+  font-size: 15.5px;
+  color: #282828;
+}
+
+.contact_desc:after {
+  content: ' ';
+  display: block;
+}
+.address_section {
+  margin-bottom: 10px;
+}
+
+.bread i {
+  font-size: 14px;
+  padding: 0px 10px 0px 0px;
+}
+
+.bread a {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  margin-bottom: 5px;
+  text-shadow: 1px 1px 4px rgb(255, 255, 255);
+  padding: 0px 10px 0px 0px;
+  color: #282828;
+}
+
+.bread {
+  margin: 20px 0px;
+}
+
+.bread a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+img {
+  object-fit: cover;
+  width: 100%;
 }
 </style>
