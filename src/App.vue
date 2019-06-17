@@ -481,7 +481,7 @@ h6 {
   }
 }
 .login-screen {
-  background-image: url('./assets/img/banner_4.jpg');
+  background-image: url('./assets/img/bg-overlay.jpg');
   height: 110vh;
   display: flex;
   justify-content: center;
@@ -791,19 +791,26 @@ h6 {
 }
 
 .logo {
-  font-size: 32px;
-  color: #201f1d;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-shadow: rgba(0, 0, 0, 0.2) 0px 0px 1px;
+  width: 150px;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
-.logo span {
-  color: #078a06;
+.logo:hover {
+  transform: scale(1.05);
 }
 
 .main_banner {
   height: 650px;
+  background-image: url('./assets/img/banner_4.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  align-items: center;
+  background-attachment: fixed;
+}
+.main_banner_interno {
+  height: 300px !important;
   background-image: url('./assets/img/banner_4.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -972,6 +979,14 @@ h6 {
   .container-lista-leilao {
     flex-direction: column !important;
   }
+  .menu li a {
+    color: white;
+    font-weight: bold;
+    background-color: #078a06;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+  }
 }
 
 .main_banner_content .main_title {
@@ -983,17 +998,28 @@ h6 {
 }
 
 .ver_mais_btn a {
-  display: block;
   color: #fff;
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 600;
   text-align: center;
-  line-height: 40px;
-  width: 100%;
+  line-height: 20px;
+  padding: 10px;
+  width: 200px;
   font-family: 'Hind', sans-serif;
   letter-spacing: 0.5px;
   text-shadow: 1px 1px 3px #201f1d;
+  background: linear-gradient(to bottom, #78c754 5%, #397a18 100%);
+  background-color: #78c754;
+  border: 1px solid #3b6e22;
+  box-shadow: 0px 0px 0px 0px #9acc85;
+  border: none;
+  cursor: pointer;
+  margin: 40px 10px 40px 10px;
+}
+
+.ver_mais_btn .criar_leilao {
+  width: 300px;
 }
 
 .center_block {
@@ -1002,21 +1028,14 @@ h6 {
 }
 
 .ver_mais_btn {
-  width: 200px;
-  margin-top: 35px;
-  box-shadow: 0px 0px 0px 0px #9acc85;
-  background: linear-gradient(to bottom, #78c754 5%, #397a18 100%);
-  background-color: #78c754;
-  border: 1px solid #3b6e22;
-  display: inline-block;
-  cursor: pointer;
-  color: #fff;
-  font-size: 13px;
-  font-weight: bold;
-  border: none;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
 
-.ver_mais_btn:hover {
+.ver_mais_btn a:hover {
   box-shadow: 0px 0px 0px 0px #9acc85;
   background: linear-gradient(to bottom, #64a745 5%, #336d16 100%);
   background-color: #67a849;
