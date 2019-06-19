@@ -7,13 +7,15 @@ import money from 'v-money';
 import api from './api';
 Vue.config.productionTip = false;
 
+import Vuelidate from 'vuelidate';
+
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-Vue.use(money)
+Vue.use(money);
 Vue.use(api);
-
+Vue.use(Vuelidate);
 new Vue({
   router,
   store,

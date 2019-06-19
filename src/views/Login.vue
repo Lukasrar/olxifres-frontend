@@ -4,11 +4,10 @@
       <div class="app-title">
         <h1 class="app-title">LOGIN</h1>
       </div>
+      <transition name="slide-fade">
+        <ErrorBox v-if="errouLogin" :tituloErro="tituloErro" :sugestao="sugestao"/>
+      </transition>
       <form class="login-form" @submit.prevent="validaForm">
-        <div v-if="errouLogin" class="login_mensagem-erro">
-          <h3 class="login_mensagem-erro_title">Usuário ou senha incorreto!</h3>
-          <p>Houve um erro ao realizar seu login, por gentileza confirme suas informações e tente novamente</p>
-        </div>
         <div class="control-group">
           <label class="label-form">E-mail</label>
           <input v-model="email" type="email" class="login-field" placeholder="Informe seu e-mail">
@@ -31,7 +30,10 @@
         <!-- <input type="submit" class="btn" value="Login"> -->
         <input type="submit" class="btn" value="Login">
         <div class="links">
-          <button class="login-link" @click="$router.push({ name: 'cadastrar' })">Não possui conta?</button>
+          <button
+            class="login-link"
+            @click.prevent="$router.push({ name: 'cadastrar' })"
+          >Não possui conta?</button>
           <button
             class="login-link"
             @click="$router.push({ name: 'esqueci-senha' })"
@@ -45,9 +47,13 @@
 <script>
 import { mapActions } from 'vuex';
 import { setTimeout } from 'timers';
+import ErrorBox from '../components/layout/ErrorBox';
 
 export default {
   name: 'Login',
+  components: {
+    ErrorBox,
+  },
   data() {
     return {
       email: 'luiz.fernando@hotmail.com',
@@ -55,6 +61,8 @@ export default {
       errouLogin: false,
       emailInvalido: false,
       senhaInvalida: false,
+      tituloErro: 'Usuário ou senha incorreto!',
+      sugestao: 'Houve um erro ao realizar seu login, por gentileza confirme suas informações e tente novamente',
     };
   },
   methods: {
@@ -83,10 +91,13 @@ export default {
       try {
         const usuario = (await this.$api.post('/login', { email, senha })).data.data[0];
         this.setUsuario(usuario);
-        this.$router.push({name : 'leiloes'})
+        this.$router.push({ name: 'leiloes' });
       } catch (err) {
         const informacoesIncorretas = !!err.response.data.error;
         this.errouLogin = true;
+        setTimeout(() => {
+          this.errouLogin = false;
+        }, 3000);
       }
     },
   },
@@ -94,20 +105,4 @@ export default {
 </script>
 
 <style scoped>
-.login_mensagem-erro {
-  box-sizing: border-box;
-  width: 320px;
-  border: 2px solid tomato;
-  border-radius: 4px;
-  margin: 10px 0;
-  padding: 5px;
-}
-
-.login_mensagem-erro * {
-  color: #333333;
-}
-
-.login_mensagem-erro_title {
-  color: #c40000;
-}
 </style>

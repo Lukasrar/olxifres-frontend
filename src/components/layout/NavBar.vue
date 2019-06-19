@@ -53,9 +53,9 @@ export default {
     ...mapGetters([['getUsuario']]),
     textoLogin() {
       if(this.getUsuario) {
-        return 'Minha conta'
+        return ' Minha conta'
       }
-      return 'Login'
+      return ' Login'
     },
     rota() {
        if(this.getUsuario) {

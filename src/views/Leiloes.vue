@@ -52,12 +52,12 @@ export default {
   data() {
     return {
       view: 'Crie seu próprio leilão',
-      leiloes: ''
+      leiloes: []
     };
   },
   async mounted() {
     this.leiloes = (await this.$api.get('/leiloes')).data.data;
-    console.log(leiloes);
+    console.log(this.leiloes);
   },
 };
 </script>
