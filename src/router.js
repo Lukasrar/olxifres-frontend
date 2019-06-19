@@ -5,6 +5,13 @@ import store from './store';
 
 Vue.use(Router);
 
+const validarUsuarioLogado = (to, from, next) => {
+  if (!store.state.usuario) {
+    return next('login');
+  }
+  return next();
+};
+
 export default new Router({
   routes: [
     {
@@ -46,6 +53,7 @@ export default new Router({
       path: '/criar-leilao',
       name: 'criar-leilao',
       component: () => import('./views/CriarLeilao.vue'),
+      beforeEnter: validarUsuarioLogado
     },
     {
       path: '/contato',
@@ -56,13 +64,7 @@ export default new Router({
       path: '/minha-conta',
       name: 'minha-conta',
       component: () => import('./views/MinhaConta.vue'),
-      beforeEnter: (to, from, next) => {
-        if (!store.state.usuario) {
-          return next('login');
-        }
-
-        return next();
-      },
+      beforeEnter: validarUsuarioLogado,
     },
   ],
 });
