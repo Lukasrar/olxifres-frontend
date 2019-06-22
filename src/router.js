@@ -48,12 +48,13 @@ export default new Router({
       path: '/leilao/:idLeilao',
       name: 'leilao',
       component: () => import('./views/Leilao.vue'),
+      beforeEnter: validarUsuarioLogado,
     },
     {
       path: '/criar-leilao',
       name: 'criar-leilao',
       component: () => import('./views/CriarLeilao.vue'),
-      beforeEnter: validarUsuarioLogado
+      beforeEnter: validarUsuarioLogado,
     },
     {
       path: '/contato',

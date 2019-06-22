@@ -8,12 +8,12 @@
               <div class="carousel-item active">
                 <img class="d-block w-100" src="../assets/img/banner_1.jpg" alt="First slide">
               </div>
-              <div class="carousel-item">
+              <!-- <div class="carousel-item">
                 <img class="d-block w-100" src="../assets/img/banner_2.jpg" alt="Second slide">
               </div>
               <div class="carousel-item">
                 <img class="d-block w-100" src="../assets/img/banner_3.jpg" alt="Third slide">
-              </div>
+              </div>-->
             </div>
             <a
               class="carousel-control-prev"
@@ -53,12 +53,12 @@
               OLXifres é uma inovação para o mercado rural e têm como foco alcançar o mercado nacional em
               meados de 2020.
             </div>
-            <form action class="form-lance">
+            <form action class="form-lance" @submit.prevent="darLance">
               <label for="valor">
                 <strong>Valor:</strong>
               </label>
               <input
-                id="valor"
+                v-model="valor"
                 type="text"
                 placeholder="Informe o valor do lance"
                 class="input-valor"
@@ -70,10 +70,7 @@
                 <p class="log-title">Ultimos lances</p>
               </div>
               <ul class="log-ul">
-                <li class="log">10000</li>
-                <li class="log">15000</li>
-                <li class="log">16000</li>
-                <li class="log">20000</li>
+                <li class="log" v-for="lance in lances" :key="lance.id_lance">{{lance.valor}}</li>
               </ul>
             </div>
           </div>
@@ -84,10 +81,46 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'Leilao',
-  mounted() {
-    console.log(this.$route.params);
+  data() {
+    return {
+      leilao: {},
+      valor: null,
+    };
+  },
+  computed: {
+    ...mapGetters({ usuario: 'getUsuario' }),
+    lances() {
+      return this.leilao.lances;
+    },
+    idLeilao() {
+      return this.$route.params.idLeilao;
+    },
+  },
+  async mounted() {
+    await this.buscarLeilao();
+  },
+  methods: {
+    async buscarLeilao() {
+      this.leilao = (await this.$api.get(`/leilao/${this.idLeilao}`)).data.data[0];
+    },
+    async darLance() {
+      try {
+        const body = {
+          valor: this.valor,
+          idUsuario: this.usuario.id_usuario,
+        };
+
+        await this.$api.post(`/lance/${this.idLeilao}`, body);
+
+        await this.buscarLeilao();
+      } catch (err) {
+        console.error(err);
+      }
+    },
   },
 };
 </script>
