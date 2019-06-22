@@ -577,7 +577,7 @@ h6 {
   color: #cc0033;
 }
 
-.error input[type=text] {
+.error input {
   background-color: #fce4e4;
   border: 1px solid #cc0033;
   outline: none;
@@ -595,18 +595,18 @@ h6 {
 .error-message {
   display: none;
 }
-@media screen and (max-width:424px) {
+@media screen and (max-width: 424px) {
   input {
   }
   .login-form {
     padding: 50px 30px;
   }
-  .error .error-message {    
+  .error .error-message {
     width: 200px;
   }
 }
 
-@media screen and (max-width:767px) and (min-width:425px) {
+@media screen and (max-width: 767px) and (min-width: 425px) {
   input {
     width: 230px;
   }
@@ -618,7 +618,7 @@ h6 {
   }
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width: 768px) {
   input {
     width: 320px;
   }
@@ -1137,14 +1137,14 @@ h6 {
     padding: 10px;
     border-radius: 5px;
   }
-  .login-container{
+  .login-container {
     display: flex;
     flex-direction: column !important;
   }
-  .ver_mais_btn{
+  .ver_mais_btn {
     width: 90vw !important;
   }
-  .ver_mais_btn a{
+  .ver_mais_btn a {
     width: 100%;
   }
 }
