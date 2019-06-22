@@ -5,7 +5,7 @@
       <div class="row align-items-center">
         <div class="content_page">
           <div class="coluna-small-12 coluna-larg-6">
-            <form>
+            <form @submit.prevent="criarLeilao">
               <div class="input-group">
                 <h2 class="title_section">Criar leilão</h2>
                 <label for="raca" class="label-info">Raça:</label>
@@ -27,19 +27,6 @@
                 <input type="number" id="peso" v-model="peso" class="input-info">
               </div>
               <div class="input-group">
-                <label for="dimensoes" class="label-info">Dimensões:</label>
-                <p class="help">Informe as dimensões do animal em centimentros.</p>
-                <input
-                  type="number"
-                  id="dimensoes"
-                  v-model="comprimento"
-                  class="input-info"
-                  placeholder="Comprimento"
-                >
-                <input type="number" v-model="altura" class="input-info" placeholder="Altura">
-                <input type="number" v-model="largura" class="input-info" placeholder="Largura">
-              </div>
-              <div class="input-group">
                 <label for="lance" class="label-info">Lance Inicial:</label>
                 <p class="help">Informe o valor inicial do leilão.</p>
                 <input type="number" id="lance" v-model="lance" class="input-info">
@@ -52,11 +39,25 @@
               <div class="input-group">
                 <label for="fotos" class="label-info">Escolha as fotos do animal:</label>
                 <p class="help">Clique no botão abaixo e selecione as fotos do animal.</p>
-                <input type="file" id="fotos" accept="image/png, image/jpeg" multiple>
+                <picture-input
+                  ref="pictureInput"
+                  @change="onChanged"
+                  @remove="onRemoved"
+                  :width="300"
+                  :removable="true"
+                  removeButtonClass="ui red button"
+                  :height="300"
+                  accept="image/jpeg, image/png, image/gif"
+                  buttonClass="ui button primary"
+                  :customStrings="{
+                  upload: '<h1>Upload it!</h1>',
+                  drag: 'Drag and drop your image here'}"
+                />
               </div>
+              <input type="submit" value="Iniciar leilão" class="btn">
             </form>
-            <input type="submit" value="Iniciar leilão" class="btn">
           </div>
+
           <div class="coluna-small-12 coluna-larg-6">
             <div class="container-logs-leiloes">
               <h2 class="title_section">Leilões ativos</h2>
@@ -75,11 +76,15 @@
 <script>
 import HeaderInterno from '../components/layout/HeaderInterno';
 import LogLeilaoAtivo from '../components/layout/LogLeilaoAtivo';
+import PictureInput from 'vue-picture-input';
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'CriarLeilao',
   components: {
     HeaderInterno,
     LogLeilaoAtivo,
+    PictureInput,
   },
   data() {
     return {
@@ -94,7 +99,59 @@ export default {
       altura: '',
       lance: '',
       tempo: '',
+      foto: '',
     };
+  },
+  computed: {
+    ...mapGetters({ usuario: 'getUsuario' }),
+  },
+  methods: {
+    onChanged() {
+      console.log('New picture loaded');
+      if (this.$refs.pictureInput.file) {
+        this.foto = this.$refs.pictureInput.file;
+      } else {
+        console.log('Old browser. No support for Filereader API');
+      }
+    },
+    onRemoved() {
+      this.foto = '';
+    },
+    attemptUpload() {
+      if (this.foto) {
+        FormDataPost('http://localhost:8001/user/picture', this.foto)
+          .then(response => {
+            if (response.data.success) {
+              this.foto = '';
+              console.log('Image uploaded successfully ✨');
+            }
+          })
+          .catch(err => {
+            console.error(err);
+          });
+      }
+    },
+    async criarLeilao() {
+      const formData = new FormData();
+      formData.append('foto', this.foto);
+      formData.append('raca', this.raca);
+      formData.append('dataNascimento', this.nascimento);
+      formData.append('cor', this.cor);
+      formData.append('peso', this.peso);
+      formData.append('lanceMinimo', this.lance);
+      formData.append('dataFim', this.tempo);
+      formData.append('idUsuario', this.usuario.id_usuario);
+
+      const config = {
+        headers: {
+          'content-type': 'multipart/form-data',
+        },
+      };
+
+      await this.$api.post('/leilao', formData, config);
+
+      console.log('Criando leilao....');
+    },
   },
 };
 </script>
