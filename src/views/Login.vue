@@ -1,16 +1,15 @@
 <template>
   <div class="login">
     <div class="login-screen">
-      <div class="app-title">
-        <h1 class="app-title">LOGIN</h1>
-      </div>
       <transition name="slide-fade">
         <ErrorBox v-if="errouLogin" :tituloErro="tituloErro" :sugestao="sugestao"/>
       </transition>
-      <form class="login-form" @submit.prevent="validaForm">
+      <form class="login-form" @submit.prevent="validaForm">        
+        <h1 class="app-title">LOGIN</h1>
         <div class="control-group">
           <label class="label-form">E-mail</label>
           <input v-model="email" type="email" class="login-field" placeholder="Informe seu e-mail">
+          <div class="error-message"> Por favor, informe o seu email no campo acima. </div>
           <transition name="slide-fade">
             <p class="help-log" v-if="emailInvalido">Favor, insira um e-mail válido.</p>
           </transition>
@@ -23,6 +22,7 @@
             class="login-field"
             placeholder="Informe sua senha"
           >
+          <div class="error-message"> Por favor, informe a sua senha no campo acima. </div>
           <transition name="slide-fade">
             <p class="help-log" v-if="senhaInvalida">Favor, insira uma senha válida.</p>
           </transition>

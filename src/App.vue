@@ -493,9 +493,10 @@ h6 {
 }
 
 .app-title {
-  margin-top: 15px;
+  margin: 5px 0px 30px;
   text-align: center;
-  color: white;
+  color: rgb(20, 20, 20);
+  text-transform: uppercase;
 }
 
 .login-form {
@@ -504,12 +505,18 @@ h6 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background: #ecf0f1;
+  border: 2px solid rgb(185, 185, 185);
+  border-radius: 5px;
 }
 
 .label-form {
   text-align: left !important;
-  color: #ffffff;
+  color: rgb(20, 20, 20);
   margin-bottom: 5px;
+  font-size: 15px;
+  font-family: sans-serif;
+  font-weight: 600;
 }
 
 .container-registro {
@@ -560,39 +567,94 @@ h6 {
 }
 
 .control-group {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
+.error label {
+  color: #cc0033;
+}
+
+.error input[type=text] {
+  background-color: #fce4e4;
+  border: 1px solid #cc0033;
+  outline: none;
+}
+
+.error .error-message {
+  color: #cc0033;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 15px;
+  margin: 5px 0 0;
+  text-align: justify;
+}
+
+.error-message {
+  display: none;
+}
+@media screen and (max-width:424px) {
+  input {
+  }
+  .login-form {
+    padding: 50px 30px;
+  }
+  .error .error-message {    
+    width: 200px;
+  }
+}
+
+@media screen and (max-width:767px) and (min-width:425px) {
+  input {
+    width: 230px;
+  }
+  .login-form {
+    padding: 50px 60px;
+  }
+  .error .error-message {
+    width: 230px;
+  }
+}
+
+@media screen and (min-width:768px) {
+  input {
+    width: 320px;
+  }
+  .login-form {
+    padding: 50px 60px;
+  }
+  .error .error-message {
+    width: 320px;
+  }
+}
+
 input {
   text-align: left;
   background-color: #ecf0f1;
-  border: 2px solid transparent;
-  border-radius: 3px;
-  font-size: 16px;
+  border: 2px solid #adadad;
+  border-radius: 2px;
+  font-size: 15px;
   font-weight: 200;
   padding: 10px 5px;
-  width: 320px;
   transition: border 0.5s;
 }
 
 input::placeholder {
-  color: #078a06;
   font-weight: 500;
 }
 
 input:focus {
-  border: 2px solid #078a06;
+  border: 2px solid #189217;
   box-shadow: none;
+  outline: 0;
 }
 
 .btn {
   text-align: center;
   border: 2px solid transparent;
-  background: transparent;
-  border: 2px solid #f6fdf6;
+  background: #078a06;
   color: #ffffff;
   font-size: 16px;
   line-height: 25px;
@@ -603,12 +665,14 @@ input:focus {
   box-shadow: none;
   transition: 0.25s;
   display: block;
-  width: 320px;
+  width: 100%;
   margin: 2px auto;
 }
 
 .btn:hover {
-  background-color: #078a06;
+  background-color: transparent;
+  color: #078a06;
+  border: 2px solid #078a06;
 }
 
 .links {
@@ -620,10 +684,10 @@ input:focus {
 
 .login-link {
   transition: all 0.3s;
-  font-size: 12px;
-  color: #ffffff;
+  font-size: 13px;
+  color: #000;
   display: block;
-  margin: 12px;
+  margin: 20px 0px 12px;
   padding: 8px;
   border: none;
   border-bottom: 2px solid green;

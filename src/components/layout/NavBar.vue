@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <div class="coluna-small-5 coluna-larg-2">
+    <div class="coluna-small-7 coluna-larg-2">
       <div class="container-logo">
         <router-link tag="a" to="/">
           <img class="logo" src="../../assets/img/logo.png">
