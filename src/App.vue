@@ -26,7 +26,8 @@ export default {
 * {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: sans-serif;  
+  box-sizing: border-box;
 }
 
 button,
@@ -646,6 +647,11 @@ input::placeholder {
 }
 
 input:focus {
+  box-shadow: none;
+  outline: 0;
+}
+
+input[type="text"]:focus {
   border: 2px solid #189217;
   box-shadow: none;
   outline: 0;
@@ -971,6 +977,7 @@ h6 {
 
 .log-ul {
   margin-top: 10px;
+  height: 175px;
 }
 
 .log-title {
@@ -984,38 +991,39 @@ h6 {
 }
 
 .container-tempo {
-  padding-top: 10px;
-  background-color: #078a06;
   width: 100%;
   height: 80px;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  background-color: #078a06;
   align-items: center;
-  flex-direction: column;
+}
+
+.label-timer-leilao {
+  font-size: 25px;
 }
 
 .timer-leilao {
+  font-size: 35px;
+}
+
+.timer-leilao, .label-timer-leilao {
   color: #ffffff;
   font-weight: bold;
   text-align: center;
 }
 
 .form-lance {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: left;
-  flex-direction: column;
-  margin: auto;
+  max-width: 100%;
+  margin: 25px 0px;
 }
+
+.form-lance label {
+}
+
 .input-valor {
-  width: 100%;
-  background-color: transparent;
-  color: #078a06;
-  border: 1px solid #078a06;
-  padding: 5px;
-  margin-bottom: 10px;
 }
+
 .help {
   color: #024e02;
 }
@@ -1044,13 +1052,35 @@ h6 {
   opacity: 0.9;
 }
 
-.btn-lance {
+.btn-lance {  
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 600;
   text-align: center;
-  width: 100%;
+  line-height: 20px;
   padding: 10px;
+  width: 100%;
+  font-family: 'Hind', sans-serif;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 3px #201f1d;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #78c754), to(#397a18));
+  background: linear-gradient(to bottom, #78c754 5%, #397a18 100%);
+  background-color: #78c754;
+  border: 1px solid #3b6e22;
+  -webkit-box-shadow: 0px 0px 0px 0px #9acc85;
+  box-shadow: 0px 0px 0px 0px #9acc85;
   border: none;
-  background-color: #078a06;
-  color: white;
+  cursor: pointer;
+  margin: 10px 0px;
+}
+
+.btn-lance:hover {  
+  -webkit-box-shadow: 0px 0px 0px 0px #9acc85;
+  box-shadow: 0px 0px 0px 0px #9acc85;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #64a745), to(#336d16));
+  background: linear-gradient(to bottom, #64a745 5%, #336d16 100%);
+  background-color: #67a849;
 }
 
 .sobre-banner {
@@ -1081,7 +1111,7 @@ h6 {
 }
 
 .perfil {
-  margin-top: 10px;
+  margin: 25px 0px;
   border-bottom: #078a06 2px solid;
 }
 
@@ -1106,6 +1136,12 @@ h6 {
 .sobre-title {
   color: white !important;
   text-align: center;
+}
+
+.sobre-nos-content {
+  text-align: justify;
+  line-height: 23px;
+  margin: 30px 0px 60px;
 }
 
 .main_banner_content {
@@ -1155,6 +1191,7 @@ h6 {
   line-height: 1;
   font-family: 'Fira Sans Condensed', sans-serif;
   text-shadow: 1px 2px 4px rgb(224, 205, 205);
+  margin-bottom: 25px;
 }
 
 .ver_mais_btn a {
@@ -1175,7 +1212,7 @@ h6 {
   box-shadow: 0px 0px 0px 0px #9acc85;
   border: none;
   cursor: pointer;
-  margin: 40px 10px 40px 10px;
+  margin: 0px 20px 0px 0px;
 }
 
 .ver_mais_btn .criar_leilao {
@@ -1188,10 +1225,9 @@ h6 {
 }
 
 .ver_mais_btn {
-  width: 500px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+  align-items: left;
   flex-direction: row;
 }
 
@@ -1334,13 +1370,6 @@ h6 {
   content: '';
 }
 
-.detalhamento {
-  margin-top: 40px;
-  margin-bottom: 20px;
-  text-align: justify;
-  font-size: 14px;
-}
-
 .link-social:link,
 .link-social:visited {
   text-decoration: none;
@@ -1355,6 +1384,7 @@ h6 {
 .descricao {
   text-align: justify;
   font-size: 14px;
+  line-height: 24px;
 }
 
 .social {
@@ -1405,7 +1435,7 @@ h6 {
 
 .info_olx_item {
   height: 100px;
-  background: #f5f5f5;
+  background: #dedede;
   padding-left: 20px;
   align-items: center;
   flex-direction: row;
@@ -1724,5 +1754,32 @@ Página de contato
 img {
   object-fit: cover;
   width: 100%;
+}
+
+.topico_leilao {
+  margin: 0px;
+  width: 100%;
+}
+
+.topico_leilao h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.detalhes-leilao {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto;
+  margin: 15px 0px;
+  grid-gap: 5px 25px;
+  justify-items: left;
+}
+
+.input-100 {
+  width: 100%;
+}
+
+.secondary_text_infos {
+  color: #000;
 }
 </style>

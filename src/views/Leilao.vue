@@ -1,8 +1,8 @@
 <template>
-  <div class="container-leilao">
+  <div class="container_page">
     <div class="container">
       <div class="row">
-        <div class="coluna-larg-8">
+        <div class="coluna-small-12 coluna-larg-8">
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -36,22 +36,23 @@
           </div>
 
           <div class="container-tempo">
-            <p class="timer-leilao">Leilão acaba em:</p>
+            <p class="label-timer-leilao">O leilão acaba em</p>
             <p class="timer-leilao">12:23:30</p>
           </div>
         </div>
-        <div class="coluna-larg-4">
+        <div class="coluna-small-12 coluna-larg-4">
           <div class="desc-leilao">
-            <div class="section_title">
+            <div class="topico_leilao text-left">
               <h2>Descrição do leilão</h2>
             </div>
-            <div class="detalhamento">
-              OLXifres é uma plataforma de comércio de gados constrúida apartir do sistema de leilões
-              online. Na plataforma, o comerciante rural consegue adquirir novos animais para sua fazenda
-              e também consegue anunciar animais que deseja negociar por taxa mínima da prestação de
-              serviço.
-              OLXifres é uma inovação para o mercado rural e têm como foco alcançar o mercado nacional em
-              meados de 2020.
+            <div class="detalhes-leilao">
+              <span> Código do leilão </span> <span> xxxx </span>
+              <span> Lance mínimo </span> <span> xxxx </span>
+              <span> Data do leilão </span> <span> xxxx </span>
+              <span> Raça</span> <span> xxxx </span>
+              <span> Peso </span> <span> xxxx </span>
+              <span> Cor </span> <span> xxxx </span>
+
             </div>
             <form action class="form-lance" @submit.prevent="darLance">
               <label for="valor">
@@ -61,7 +62,7 @@
                 v-model="valor"
                 type="text"
                 placeholder="Informe o valor do lance"
-                class="input-valor"
+                class="input-valor input-100"
               >
               <input type="submit" value="Dar lance" class="animated infinite pulse btn-lance">
             </form>
@@ -75,6 +76,18 @@
             </div>
           </div>
         </div>
+        
+        <!-- <div class="coluna-small-12">
+          <div class="section_title_container">
+            <h2 class="title_section"> Outros leilões </h2>
+          </div>
+          <div class="coluna-small-4">
+          </div>
+          <div class="coluna-small-4">
+          </div>
+          <div class="coluna-small-4">
+          </div>
+        </div> -->
       </div>
     </div>
   </div>

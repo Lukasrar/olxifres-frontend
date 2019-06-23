@@ -7,8 +7,7 @@
             <i class="far fa-clock info_olx_icon"></i>
             <div class="info_olx_content">
               <p class="main_text">Disponível a qualquer hora do dia</p>
-              <p></p>
-              <p>Plataforma funcional em 3G</p>
+              <p class="secondary_text_infos">Plataforma funcional em 3G</p>
             </div>
           </div>
         </div>
@@ -17,7 +16,7 @@
             <i class="fas fa-horse-head info_olx_icon"></i>
             <div class="info_olx_content">
               <p class="main_text">Animais bem cuidados</p>
-              <p>E com excelente temperamento</p>
+              <p class="secondary_text_infos">E com excelente temperamento</p>
             </div>
           </div>
         </div>
@@ -26,7 +25,7 @@
             <i class="fas fa-hand-holding-usd info_olx_icon"></i>
             <div class="info_olx_content">
               <p class="main_text">Preços que cabem no seu bolso</p>
-              <p>As melhores negociações do mercado</p>
+              <p class="secondary_text_infos">As melhores negociações do mercado</p>
             </div>
           </div>
         </div>

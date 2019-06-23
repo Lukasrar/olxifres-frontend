@@ -13,7 +13,7 @@
             <div class="section_title">
               <h2>Destaque da semana</h2>
             </div>
-            <div class="detalhamento">
+            <div class="descricao">
               O criatório Yuri sem dúvida alguma, é um criatório de destaque dentro da raça Mangalarga
               Marchador. Basta avaliarmos os resultados
               em pista e iremos comprovar essa afirmação! Aqui temos um legítimo representante desse
