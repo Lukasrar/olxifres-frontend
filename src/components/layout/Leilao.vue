@@ -5,7 +5,7 @@
   >
     <div
       class="ultimos_leiloes_item align-items-center"
-      style="background-image:url(../../assets/img/banner_1.jpg)"
+      :style="{'background-image': `url(data:image/gif;base64,${foto}`}"
     >
       <div class="ultimos_leiloes_estado">
         <a>R${{lanceMinimo}}</a>
@@ -34,12 +34,18 @@ export default {
         return '';
       },
     },
-    lanceMinimo:{
+    lanceMinimo: {
       type: Number,
-      default(){
-        return null
-      }
-    }
+      default() {
+        return null;
+      },
+    },
+    foto: {
+      type: String,
+      default() {
+        return '';
+      },
+    },
   },
 };
 </script>
