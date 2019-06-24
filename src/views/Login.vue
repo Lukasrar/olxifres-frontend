@@ -9,7 +9,7 @@
       </transition>
       <form class="login-form" @submit.prevent="validaForm">
         <div class="control-group">
-          <label class="label-form">E-mail</label>
+          <label class="label-form" >E-mail</label>
           <input v-model="email" type="email" class="login-field" placeholder="Informe seu e-mail">
           <transition name="slide-fade">
             <p class="help-log" v-if="emailInvalido">Favor, insira um e-mail válido.</p>
