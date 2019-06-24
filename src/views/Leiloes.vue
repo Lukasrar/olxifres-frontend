@@ -31,7 +31,14 @@
         </div>
         <div class="container">
           <div class="row container-lista-leilao">
-            <Leilao v-for="leilao in leiloes" :key="leilao.id_leilao" :racaAnimal="leilao.raca" :lanceMinimo="leilao.lance_minimo" :idLeilao="leilao.id_leilao"/>
+            <Leilao
+              v-for="leilao in leiloes"
+              :key="leilao.id_leilao"
+              :racaAnimal="leilao.raca"
+              :lanceMinimo="leilao.lance_minimo"
+              :idLeilao="leilao.id_leilao"
+              :foto="leilao.foto"
+            />
           </div>
         </div>
       </div>
@@ -52,7 +59,7 @@ export default {
   data() {
     return {
       view: 'Crie seu próprio leilão',
-      leiloes: []
+      leiloes: [],
     };
   },
   async mounted() {

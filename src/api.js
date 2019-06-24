@@ -5,12 +5,12 @@ const client = axios.create({
 });
 
 const api = {
-  get(url, params) {
-    return client.get(url, params);
+  get(url, params, config) {
+    return client.get(url, params, config);
   },
 
-  post(url, params) {
-    return client.post(url, params);
+  post(url, params, config) {
+    return client.post(url, params, config);
   },
 };
 

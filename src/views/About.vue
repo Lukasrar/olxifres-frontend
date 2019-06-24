@@ -1,33 +1,33 @@
 <template>
   <div>
-    <div class="sobre-banner">
-      <div class="container height_100">
-        <div class="sobre-banner height_100">
-          <div class="main_banner_content">
-            <h1 class="main_title sobre-title">
-              Descubra a história por trás desta
-              plataforma!
-            </h1>
-          </div>
+    <div class="main_banner_300 banner_4">
+        <div class="container height_100">
+            <div class="main_banner_content_container height_100">
+                <div class="main_banner_content">
+                    <h4 class="sec_main_title">Leilão de gado online - temporada 2/2019</h4>
+                    <div class="bread">
+                        <span> <router-link tag="a" to="/">Início</router-link> <i class="fa fa-fw fa-arrow-right"></i> <a href="#">Sobre nós</a> </span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
-    <div class="destaque_semanal">
+    <div class="container_page">
       <div class="container">
         <div class="row align-items-center">
+          <div class="coluna-small-12 coluna-larg-12">
+              <h2 class="main_title_2"> Sobre nós </h2> 
+          </div>
           <div class="coluna-small-12 coluna-larg-12 text-right">
             <div class="destaque_semanal_content">
-              <div class="section_title">
-                <h2>Sobre nós</h2>
-              </div>
-              <div class="detalhamento">
-                OLXifres é uma plataforma de comércio de gados constrúida apartir do sistema de leilões
-                online. Na plataforma, o comerciante rural consegue adquirir novos animais para sua fazenda
-                e também consegue anunciar animais que deseja negociar por taxa mínima da prestação de
-                serviço.
-                OLXifres é uma inovação para o mercado rural e têm como foco alcançar o mercado nacional em
-                meados de 2020.
+              <div class="coluna-small-12 coluna-larg-12">
+                <div class="sobre-nos-content">                
+                  A OLXifres é uma plataforma de comércio de animais rurais constrúida a partir de uma estrutura inovadora de leilões online. 
+                  Na plataforma é possível realizar de manéria rápida e ágil o câmbio de animais, facilitando a vida do empreendor rural e interligando um dos maiores mercados
+                  consumidores da américa latina. A aplicação foi desenvolvida por um grupo de alunos, com o intuito de sanar a necessiadde de um projeto interdisciplinar pertencente
+                  ao 3° período do curso de Sistemas para internet. Tal curso é minitrado no campos Uberlândia Centro pertencente ao Instituto Federal do Triângulo Mineiro.
+                </div>
               </div>
 
               <div
