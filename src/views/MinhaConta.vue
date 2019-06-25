@@ -129,13 +129,9 @@
         <div class="coluna-small-12 coluna-larg-6">
           <div>
             <h2 class="title_section">Seus leilões ativos</h2>
-            <p v-if="!temLeilao">Você não tem nenhum leilão registrado</p>
-            <div v-if="temLeilao">
-              <LogLeilaoAtivo/>
-              <LogLeilaoAtivo/>
-              <LogLeilaoAtivo/>
-              <LogLeilaoAtivo/>
-              <LogLeilaoAtivo/>
+            <p v-if="animais.length == 0">Você não tem nenhum leilão registrado</p>
+            <div v-if="animais.length > 0">
+              <LogLeilaoAtivo v-for="animal in animais" :raca='animal.raca' :cor='animal.cor' :data='animal.data' :lance_minimo='animal.lance_minimo'/>
             </div>
           </div>
         </div>
@@ -169,6 +165,7 @@ export default {
       numero: '666',
       cpf: '114000000-98',
       cep: '38408389',
+      animais: [],
     };
   },
   computed: {
@@ -179,6 +176,11 @@ export default {
       //faz algo
       this.editar = !this.editar;
     },
+  },
+  async mounted() {
+    this.animais = (await this.$api.get(`/leiloes/${this.usuario.id_usuario}`)).data.data;
+    console.log(this.usuario.id_usuario);
+    console.log(this.animais)
   },
 };
 </script>
