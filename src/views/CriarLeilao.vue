@@ -62,11 +62,14 @@
 
           <div class="coluna-small-12 coluna-larg-6">
             <div class="container-logs-leiloes">
-              <h2 class="title_section">Leilões ativos</h2>
-              <LogLeilaoAtivo/>
-              <LogLeilaoAtivo/>
-              <LogLeilaoAtivo/>
-              <LogLeilaoAtivo/>
+              <h2 class="title_section">Leilões ativos para comparação</h2>
+              <LogLeilaoAtivo
+                v-for="animal in animais"
+                :raca="animal.raca"
+                :cor="animal.cor"
+                :data="animal.data"
+                :lance_minimo="animal.lance_minimo"
+              />
             </div>
           </div>
         </div>
@@ -100,6 +103,7 @@ export default {
       lance: '',
       dataFim: '',
       foto: '',
+      animais: [],
     };
   },
   validations: {
@@ -180,6 +184,13 @@ export default {
         this.$noty.error('Não foi possível criar criar seu leilão :(');
       }
     },
+  },
+  async mounted() {
+    const params = {
+      limit: 10,
+    };
+
+    this.animais = (await this.$api.get('/leiloes', { params })).data.data;
   },
 };
 </script>

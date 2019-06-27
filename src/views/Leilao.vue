@@ -36,8 +36,7 @@
           </div>
 
           <div class="container-tempo">
-            <p class="label-timer-leilao">O leilão acaba em</p>
-            <p class="timer-leilao">12:23:30</p>
+            <p class="label-timer-leilao">O leilão acaba em: 12:23:30</p>
           </div>
         </div>
         <div class="coluna-small-12 coluna-larg-4">
@@ -46,12 +45,12 @@
               <h2>Descrição do leilão</h2>
             </div>
             <div class="detalhes-leilao">
-              <span> Código do leilão </span> <span> xxxx </span>
-              <span> Lance mínimo </span> <span> xxxx </span>
-              <span> Data do leilão </span> <span> xxxx </span>
-              <span> Raça</span> <span> xxxx </span>
-              <span> Peso </span> <span> xxxx </span>
-              <span> Cor </span> <span> xxxx </span>
+              <span> Código do leilão </span> <span> {{leilao.id_leilao}} </span>
+              <span> Lance mínimo </span> <span> {{leilao.lance_minimo}} </span>
+              <span> Data do leilão </span> <span> {{formatarData(leilao.data)}} </span>
+              <span> Raça</span> <span> {{leilao.raca}} </span>
+              <span> Peso </span> <span> {{leilao.peso}} </span>
+              <span> Cor </span> <span> {{leilao.cor}} </span>
 
             </div>
             <form action class="form-lance" @submit.prevent="darLance">
@@ -95,7 +94,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-
+import moment from 'moment' 
 export default {
   name: 'Leilao',
   data() {
@@ -134,6 +133,9 @@ export default {
         console.error(err);
       }
     },
+    formatarData(data){
+      return moment(data).format('DD/MM/YYYY')
+    }
   },
 };
 </script>

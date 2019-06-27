@@ -26,7 +26,7 @@ export default {
 * {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;  
+  font-family: sans-serif;
   box-sizing: border-box;
 }
 
@@ -651,7 +651,7 @@ input:focus {
   outline: 0;
 }
 
-input[type="text"]:focus {
+input[type='text']:focus {
   border: 2px solid #189217;
   box-shadow: none;
   outline: 0;
@@ -993,21 +993,19 @@ h6 {
 .container-tempo {
   width: 100%;
   height: 80px;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  background-color: #078a06;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  background-color: #078a06;
 }
 
 .label-timer-leilao {
   font-size: 25px;
+  text-align: center;
 }
 
-.timer-leilao {
-  font-size: 35px;
-}
-
-.timer-leilao, .label-timer-leilao {
+.timer-leilao,
+.label-timer-leilao {
   color: #ffffff;
   font-weight: bold;
   text-align: center;
@@ -1052,7 +1050,7 @@ h6 {
   opacity: 0.9;
 }
 
-.btn-lance {  
+.btn-lance {
   color: #fff;
   text-transform: uppercase;
   font-size: 16px;
@@ -1075,7 +1073,7 @@ h6 {
   margin: 10px 0px;
 }
 
-.btn-lance:hover {  
+.btn-lance:hover {
   -webkit-box-shadow: 0px 0px 0px 0px #9acc85;
   box-shadow: 0px 0px 0px 0px #9acc85;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #64a745), to(#336d16));
@@ -1343,6 +1341,7 @@ h6 {
   align-items: center;
   flex-direction: row;
   margin: auto;
+  padding-bottom: 50px;
 }
 
 .destaque_semanal_content {

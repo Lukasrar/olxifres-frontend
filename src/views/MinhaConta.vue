@@ -131,7 +131,13 @@
             <h2 class="title_section">Seus leilões ativos</h2>
             <p v-if="animais.length == 0">Você não tem nenhum leilão registrado</p>
             <div v-if="animais.length > 0">
-              <LogLeilaoAtivo v-for="animal in animais" :raca='animal.raca' :cor='animal.cor' :data='animal.data' :lance_minimo='animal.lance_minimo'/>
+              <LogLeilaoAtivo
+                v-for="animal in animais"
+                :raca="animal.raca"
+                :cor="animal.cor"
+                :data="animal.data"
+                :lance_minimo="animal.lance_minimo"
+              />
             </div>
           </div>
         </div>
@@ -154,17 +160,6 @@ export default {
       editar: false,
       temLeilao: false,
       saldo: 9999,
-      nome: 'Jabriscreido',
-      senha: 'Jabriscreido123',
-      email: 'jabriscreido@hotmail.com',
-      telefone: '99999-9999',
-      cidade: 'Uberlândia',
-      estado: 'MG',
-      logradouro: 'Rua joaquim silva jhonson',
-      bairro: 'Segismundo Pereira',
-      numero: '666',
-      cpf: '114000000-98',
-      cep: '38408389',
       animais: [],
     };
   },
@@ -180,7 +175,7 @@ export default {
   async mounted() {
     this.animais = (await this.$api.get(`/leiloes/${this.usuario.id_usuario}`)).data.data;
     console.log(this.usuario.id_usuario);
-    console.log(this.animais)
+    console.log(this.animais);
   },
 };
 </script>
