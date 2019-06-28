@@ -45,13 +45,18 @@
               <h2>Descrição do leilão</h2>
             </div>
             <div class="detalhes-leilao">
-              <span> Código do leilão </span> <span> {{leilao.id_leilao}} </span>
-              <span> Lance mínimo </span> <span> {{leilao.lance_minimo}} </span>
-              <span> Data do leilão </span> <span> {{formatarData(leilao.data)}} </span>
-              <span> Raça</span> <span> {{leilao.raca}} </span>
-              <span> Peso </span> <span> {{leilao.peso}} </span>
-              <span> Cor </span> <span> {{leilao.cor}} </span>
-
+              <span>Código do leilão</span>
+              <span>{{leilao.id_leilao}}</span>
+              <span>Lance mínimo</span>
+              <span>{{leilao.lance_minimo}}</span>
+              <span>Data do leilão</span>
+              <span>{{formatarData(leilao.data)}}</span>
+              <span>Raça</span>
+              <span>{{leilao.raca}}</span>
+              <span>Peso</span>
+              <span>{{leilao.peso}}</span>
+              <span>Cor</span>
+              <span>{{leilao.cor}}</span>
             </div>
             <form action class="form-lance" @submit.prevent="darLance">
               <label for="valor">
@@ -75,7 +80,7 @@
             </div>
           </div>
         </div>
-        
+
         <!-- <div class="coluna-small-12">
           <div class="section_title_container">
             <h2 class="title_section"> Outros leilões </h2>
@@ -86,17 +91,22 @@
           </div>
           <div class="coluna-small-4">
           </div>
-        </div> -->
+        </div>-->
       </div>
+      <UltimosLeiloes/>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-import moment from 'moment' 
+import moment from 'moment';
+import UltimosLeiloes from '../components/layout/UltimosLeiloes';
 export default {
   name: 'Leilao',
+  components: {
+    UltimosLeiloes,
+  },
   data() {
     return {
       leilao: {},
@@ -113,6 +123,9 @@ export default {
     },
   },
   async mounted() {
+    await this.buscarLeilao();
+  },
+  async updated() {
     await this.buscarLeilao();
   },
   methods: {
@@ -133,9 +146,9 @@ export default {
         console.error(err);
       }
     },
-    formatarData(data){
-      return moment(data).format('DD/MM/YYYY')
-    }
+    formatarData(data) {
+      return moment(data).format('DD/MM/YYYY');
+    },
   },
 };
 </script>
