@@ -19,7 +19,7 @@
             </div>
             <div class="input-group">
               <label for="senha" class="label-info">Senha:</label>
-              <input class="input-info editavel" type="text" id="senha" :value="senha">
+              <input class="input-info editavel" type="text" id="senha">
             </div>
             <div class="input-group">
               <label for="cpf" class="label-info">CPF:</label>
@@ -73,13 +73,29 @@
           <div>
             <h2 class="title_section">Seus leilões ativos</h2>
             <p v-if="animais.length == 0">Você não tem nenhum leilão registrado</p>
-            <div v-if="animais.length > 0">
+            <div v-if="animais.length > 0" class="container-leiloes ativo">
               <LogLeilaoAtivo
                 v-for="animal in animais"
                 :raca="animal.raca"
                 :cor="animal.cor"
                 :data="animal.data"
+                :status="animal.status"
                 :lance_minimo="animal.lance_minimo"
+              />
+            </div>
+          </div>
+          <div>
+            <h2 class="title_section">Seus leilões inativos</h2>
+            <p v-if="animais.length == 0">Você não tem nenhum leilão registrado</p>
+            <div v-if="animais.length > 0" class="container-leiloes inativo">
+              <LogLeilaoAtivo
+                v-for="animal in animaisInativos"
+                :raca="animal.raca"
+                :cor="animal.cor"
+                :data="animal.data"
+                :lance_minimo="animal.lance_minimo"
+                :status="animal.status"
+                :key="animal.id_animal"
               />
             </div>
           </div>
@@ -103,6 +119,7 @@ export default {
       temLeilao: false,
       saldo: 9999,
       animais: [],
+      animaisInativos: []
     };
   },
   computed: {
@@ -115,9 +132,10 @@ export default {
     },
   },
   async mounted() {
-    this.animais = (await this.$api.get(`/leiloes/${this.usuario.id_usuario}`)).data.data;
-    console.log(this.usuario.id_usuario);
-    console.log(this.animais);
+    const resp = (await this.$api.get(`/leiloes/${this.usuario.id_usuario}`)).data.data;
+    console.log(resp);
+    this.animais = resp.filter(animal => animal.status == 1)
+    this.animaisInativos = resp.filter(animal => animal.status != 1)
   },
 };
 </script>
@@ -136,5 +154,20 @@ export default {
 .cancel {
   background-color: darkred;
   margin-right: 5px;
+}
+
+.container-leiloes {
+  border-radius: 5px;
+  max-height: 50vh;
+  overflow: scroll;
+  padding: 10px;
+}
+
+.ativo {
+  border: 2px solid green;
+}
+
+.inativo {
+  border: 2px solid darkred;
 }
 </style>

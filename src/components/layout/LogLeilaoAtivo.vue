@@ -1,5 +1,5 @@
 <template>
-  <div class="log">
+  <div :class="status ? 'log-ativo' : 'log-inativo'">
     <div class="info">
       <img src="../../assets/img/banner_1.jpg" class="foto-log">
     </div>
@@ -23,21 +23,21 @@
 </template>
 
 <script>
-import moment from 'moment'
+import moment from 'moment';
 
 export default {
   name: 'LogLeilaoAtivo',
-  props: ['raca', 'cor', 'data', 'lance_minimo'],
-  methods:{
-    formatarData(data){
-      return moment(data).format('DD/MM/YYYY')
-    }
-  } 
+  props: ['raca', 'cor', 'data', 'lance_minimo', 'status'],
+  methods: {
+    formatarData(data) {
+      return moment(data).format('DD/MM/YYYY');
+    },
+  },
 };
 </script>
 
 <style scoped>
-.log {
+.log-ativo {
   width: 100%;
   background-color: green;
   display: flex;
@@ -48,8 +48,21 @@ export default {
   align-items: center;
   flex-direction: row;
 }
-.info{
-    color: white;
+
+.log-inativo {
+  background-color: darkred;
+  width: 100%;
+  display: flex;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 5px;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+
+.info {
+  color: white;
 }
 
 .foto-log {

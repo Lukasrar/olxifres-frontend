@@ -35,7 +35,7 @@
               <div class="input-group" :class="{ 'error' : !$v.dataFim.required && $v.$error}">
                 <label class="label-info">Data fim do leilão: *</label>
                 <p class="help">Informe a data de encerramento do leilão.</p>
-                <input type="datetime-local" v-model="dataFim" class="input-info">
+                <input type="date" v-model="dataFim" class="input-info">
               </div>
               <div class="input-group">
                 <label for="fotos" class="label-info">Escolha a foto do animal: *</label>
@@ -69,6 +69,7 @@
                 :raca="animal.raca"
                 :cor="animal.cor"
                 :data="animal.data"
+                :status="animal.status"
                 :lance_minimo="animal.lance_minimo"
                 :key="animal.id_animal"
               />

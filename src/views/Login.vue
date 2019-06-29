@@ -72,8 +72,8 @@ export default {
   },
   data() {
     return {
-      email: 'luiz.fernando@hotmail.com',
-      senha: 'luiz123',
+      email: 'lukasrar@hotmail.com',
+      senha: 'lukas123',
       errouLogin: false,
       emailInvalido: false,
       senhaInvalida: false,
