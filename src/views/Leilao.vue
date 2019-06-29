@@ -6,7 +6,7 @@
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img class="d-block w-100" src="../assets/img/banner_1.jpg" alt="First slide">
+                <img class="d-block w-100" :src="getBase64Src(leilao.foto)" alt="First slide">
               </div>
               <!-- <div class="carousel-item">
                 <img class="d-block w-100" src="../assets/img/banner_2.jpg" alt="Second slide">
@@ -125,12 +125,9 @@ export default {
   async mounted() {
     await this.buscarLeilao();
   },
-  async updated() {
-    await this.buscarLeilao();
-  },
   methods: {
     async buscarLeilao() {
-      this.leilao = (await this.$api.get(`/leilao/${this.idLeilao}`)).data.data[0];
+      this.leilao = (await this.$api.get(`/leilao/${this.idLeilao}`)).data.data;
     },
     async darLance() {
       try {
@@ -148,6 +145,9 @@ export default {
     },
     formatarData(data) {
       return moment(data).format('DD/MM/YYYY');
+    },
+    getBase64Src(base64) {
+      return `data:image/jpeg;base64,${base64}`;
     },
   },
 };

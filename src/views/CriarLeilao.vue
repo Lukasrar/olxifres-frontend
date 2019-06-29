@@ -69,6 +69,7 @@
                 :cor="animal.cor"
                 :data="animal.data"
                 :lance_minimo="animal.lance_minimo"
+                :key="animal.id_animal"
               />
             </div>
           </div>
