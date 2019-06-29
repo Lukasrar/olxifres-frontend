@@ -675,6 +675,23 @@ input[type='text']:focus {
   margin: 2px auto;
 }
 
+.btn-picture{
+  color: white;
+  padding: 10px;
+  border:none;
+  background-color: #078a06;
+  margin: 5px;
+  transition: all .3s;
+}
+
+.btn-picture:hover{
+  transform: scale(.9);
+}
+
+.red{
+  background-color: darkred;
+}
+
 .btn:hover {
   background-color: transparent;
   color: #078a06;

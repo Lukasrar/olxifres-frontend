@@ -45,15 +45,16 @@
                   @remove="onRemoved"
                   :width="300"
                   :removable="true"
-                  removeButtonClass="ui red button"
+                  removeButtonClass="btn-picture red"
                   :height="300"
                   accept="image/jpeg, image/png, image/gif"
-                  buttonClass="ui button primary"
+                  buttonClass="btn-picture"
                   :customStrings="{
                   upload: '<h1>Upload it!</h1>',
                   drag: 'Clique ou arraste para selecionar uma imagem!',
-                  change: 'Trocar foto', 
-                  remove: 'Remover foto' }"
+                  remove: 'Remover foto',
+                  change: 'Trocar foto' 
+                   }"
                 />
               </div>
               <input type="submit" value="Iniciar leilão" class="btn">
@@ -197,9 +198,4 @@ export default {
 </script>
 
 <style scoped>
-.btn {
-  width: 100%;
-  background-color: green;
-  color: white;
-}
 </style>
