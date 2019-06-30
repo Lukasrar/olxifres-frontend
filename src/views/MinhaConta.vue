@@ -3,7 +3,7 @@
     <div class="row align-items-center">
       <div class="content_page">
         <div class="coluna-small-12 coluna-larg-6">
-          <form>
+          <form @submit.prevent="salvar">
             <h2
               class="title_section"
             >Olá {{usuario.nome}}, aqui você pode editar algumas informações da sua conta.</h2>
@@ -19,7 +19,7 @@
             </div>
             <div class="input-group">
               <label for="senha" class="label-info">Senha:</label>
-              <input class="input-info editavel" type="text" id="senha">
+              <input class="input-info editavel" type="text" id="senha" v-model="usuario.senha" />
             </div>
             <div class="input-group">
               <label for="cpf" class="label-info">CPF:</label>
@@ -31,16 +31,16 @@
                 class="input-info editavel"
                 type="text"
                 id="telefone"
-                :value="usuario.telefone"
-              >
+                v-model="usuario.telefone"
+              />
             </div>
             <div class="input-group">
               <label for="cidade" class="label-info">Cidade:</label>
-              <input class="input-info editavel" type="text" id="cidade" :value="usuario.cidade">
+              <input class="input-info editavel" type="text" id="cidade" v-model="usuario.cidade" />
             </div>
             <div class="input-group">
               <label for="estado" class="label-info">Estado:</label>
-              <input class="input-info editavel" type="text" id="estado" :value="usuario.estado">
+              <input class="input-info editavel" type="text" id="estado" v-model="usuario.estado" />
             </div>
             <div class="input-group">
               <label for="logradouro" class="label-info">Logradouro:</label>
@@ -48,23 +48,23 @@
                 class="input-info editavel"
                 type="text"
                 id="logradouro"
-                :value="usuario.logradouro"
-              >
+                v-model="usuario.logradouro"
+              />
             </div>
             <div class="input-group">
               <label for="bairro" class="label-info">Bairro:</label>
-              <input class="input-info editavel" type="text" id="bairro" :value="usuario.bairro">
+              <input class="input-info editavel" type="text" id="bairro" v-model="usuario.bairro" />
             </div>
             <div class="input-group">
               <label for="numero" class="label-info">Numero:</label>
-              <input class="input-info editavel" type="text" id="numero" :value="usuario.numero">
+              <input class="input-info editavel" type="text" id="numero" v-model="usuario.numero" />
             </div>
             <div class="input-group">
               <label for="cep" class="label-info">CEP:</label>
-              <input class="input-info editavel" type="text" id="cep" :value="usuario.cep">
+              <input class="input-info editavel" type="text" id="cep" v-model="usuario.cep" />
             </div>
             <div class="links">
-              <button class="btn cancel" @click="editar = false">Cancelar</button>
+              <button class="btn cancel" @click="preencherUsuario">Cancelar</button>
               <button class="btn" @click="salvar">Salvar</button>
             </div>
           </form>
@@ -81,6 +81,7 @@
                 :data="animal.data"
                 :status="animal.status"
                 :lance_minimo="animal.lance_minimo"
+                :key="animal.id_animal"
               />
             </div>
           </div>
@@ -107,7 +108,8 @@
 
 <script>
 import LogLeilaoAtivo from '../components/layout/LogLeilaoAtivo';
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
+import { cloneDeep } from 'lodash';
 
 export default {
   name: 'MinhaConta',
@@ -119,23 +121,29 @@ export default {
       temLeilao: false,
       saldo: 9999,
       animais: [],
-      animaisInativos: []
+      animaisInativos: [],
+      usuario: {},
     };
   },
   computed: {
-    ...mapGetters({ usuario: 'getUsuario' }),
+    ...mapGetters(['getUsuario']),
   },
   methods: {
-    salvar() {
-      //faz algo
-      this.editar = !this.editar;
+    ...mapActions(['setUsuario']),
+    async salvar() {
+      await this.$api.put('/usuario', this.usuario);
+
+      this.setUsuario(this.usuario);
+    },
+    preencherUsuario() {
+      this.usuario = cloneDeep(this.getUsuario);
     },
   },
   async mounted() {
+    this.preencherUsuario();
     const resp = (await this.$api.get(`/leiloes/${this.usuario.id_usuario}`)).data.data;
-    console.log(resp);
-    this.animais = resp.filter(animal => animal.status == 1)
-    this.animaisInativos = resp.filter(animal => animal.status != 1)
+    this.animais = resp.filter(animal => animal.status === 0);
+    this.animaisInativos = resp.filter(animal => animal.status === 1);
   },
 };
 </script>
@@ -158,8 +166,8 @@ export default {
 
 .container-leiloes {
   border-radius: 5px;
-  max-height: 50vh;
-  overflow: scroll;
+  max-height: 200px;
+  overflow: auto;
   padding: 10px;
 }
 
