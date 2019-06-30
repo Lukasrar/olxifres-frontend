@@ -1,5 +1,5 @@
 <template>
-  <div :class="status ? 'log-ativo' : 'log-inativo'">
+  <div :class="status === 0 ? 'log-ativo' : 'log-inativo'">
     <div class="info">
       <img src="../../assets/img/banner_1.jpg" class="foto-log">
     </div>

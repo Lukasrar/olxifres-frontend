@@ -15,7 +15,7 @@
             </div>
             <div class="input-group">
               <label for="email" class="label-info">Email:</label>
-              <input class="input-info editavel" type="text" id="email" :value="usuario.email">
+              <span>{{usuario.email}}</span>
             </div>
             <div class="input-group">
               <label for="senha" class="label-info">Senha:</label>

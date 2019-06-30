@@ -10,6 +10,7 @@
         <Leilao
           v-for="leilao in leiloes"
           :key="leilao.id_leilao"
+          :foto="leilao.foto"
           :idLeilao="leilao.id_leilao"
           :racaAnimal="leilao.raca"
         />

@@ -5,7 +5,7 @@
   >
     <div
       class="ultimos_leiloes_item align-items-center"
-      :style="{'background-image': `url(data:image/gif;base64,${foto}`}"
+      :style="{'background-image': `url(${getBase64Src(foto)})`}"
     >
       <div class="ultimos_leiloes_estado">
         <a>R${{lanceMinimo}}</a>
@@ -18,9 +18,12 @@
 </template>
 
 <script>
+import mixin from '../../mixins'
+
 export default {
   name: 'Leilao',
   image: './banner_1.jpg',
+  mixins: [mixin],
   props: {
     idLeilao: {
       type: Number,

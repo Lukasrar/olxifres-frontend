@@ -71,6 +71,7 @@
                 :data="animal.data"
                 :status="animal.status"
                 :lance_minimo="animal.lance_minimo"
+                :foto="animal.foto"
                 :key="animal.id_animal"
               />
             </div>

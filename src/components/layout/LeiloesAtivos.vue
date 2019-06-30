@@ -10,6 +10,7 @@
         <Leilao
           v-for="leilao in leiloes"
           :key="leilao.id_leilao"
+          :foto="leilao.foto"
           :idLeilao="leilao.id_leilao"
           :racaAnimal="leilao.raca"
         />
@@ -33,7 +34,7 @@ export default {
   methods: {
     async buscarLeiloesAtivos() {
       const params = {
-        status: 1,
+        status: 0,
         limit: 6,
       };
       this.leiloes = (await this.$api.get('/leiloes', { params })).data.data;
