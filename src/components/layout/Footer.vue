@@ -45,7 +45,7 @@
         </div>
         <div class="coluna-larg-5">
           <h3 class="footer_links_title">Redes Sociais</h3>
-          <ul class="footer_links">
+          <ul class="footer_links_grid">
             <li>
               <a href="#">
                 <i class="fab fa-fw fa-facebook-f"/> Facebook
@@ -63,21 +63,21 @@
             </li>
           </ul>
           <h3 class="footer_links_title">Contatos</h3>
-          <ul class="footer_links">
+          <ul class="footer_links_grid">
             <li>
-              <a href="#">
+              <router-link tag="a" to="/contato">
                 <i class="fas fa-fw fa-mobile-alt"/> (34) 3220-0000
-              </a>
+              </router-link>
             </li>
             <li>
-              <a href="#">
+              <router-link tag="a" to="/contato">
                 <i class="fab fa-fw fa-whatsapp"/> (11) 99000-0000
-              </a>
+              </router-link>
             </li>
             <li>
-              <a href="#">
+              <router-link tag="a" to="/contato">
                 <i class="fas fa-fw fa-map-marker-alt"/> Av. Central, n° 500 -Centro
-              </a>
+              </router-link>
             </li>
           </ul>
         </div>

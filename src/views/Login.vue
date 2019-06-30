@@ -4,17 +4,16 @@
       <transition name="slide-fade">
         <ErrorBox v-if="errouLogin" :tituloErro="tituloErro" :sugestao="sugestao"/>
       </transition>
-      <form class="login-form" @submit.prevent="validaForm" >
-        <h1 class="app-title">LOGIN</h1>
-        <div class="control-group">
+      <form class="login-form" @submit.prevent="validaForm" novalidate>
+        <h1 class="app-title">Entrar</h1>
+        <div class="control-group" v-bind:class="{ 'error': emailHasError }">
           <label class="label-form">E-mail</label>
-          <input v-model="email" type="email" class="login-field" placeholder="Informe seu e-mail">
-          <div class="error-message">Por favor, informe o seu email no campo acima.</div>
-          <transition name="slide-fade">
-            <p class="help-log" v-if="emailInvalido">Favor, insira um e-mail válido.</p>
-          </transition>
+          <input v-model="email" type="email" class="login-field" placeholder="Informe seu e-mail" 
+          oninvalid="this.setCustomValidity('Você deve informar um e-mail válido no formato: usuario@email.com')"
+          oninput="this.setCustomValidity('')">
+          <div class="error-message" v-if="emailInvalido"> Por favor, informe um email válido no campo acima. <br> Formato: usuario@email.com </div>
         </div>
-        <div class="control-group">
+        <div class="control-group" v-bind:class="{ 'error': senhaHasError }">
           <label for="login-pass" class="label-form">Senha</label>
           <input
             v-model="senha"
@@ -22,10 +21,7 @@
             class="login-field"
             placeholder="Informe sua senha"
           >
-          <div class="error-message">Por favor, informe a sua senha no campo acima.</div>
-          <transition name="slide-fade">
-            <p class="help-log" v-if="senhaInvalida">Favor, insira uma senha válida.</p>
-          </transition>
+          <div class="error-message" v-if="senhaInvalida">Por favor, informe a sua senha no campo acima.</div>
         </div>
         <!-- <input type="submit" class="btn" value="Login"> -->
         <input type="submit" class="btn" value="Login">
@@ -80,23 +76,24 @@ export default {
       tituloErro: 'Usuário ou senha incorreto!',
       sugestao: 'Houve um erro ao realizar seu login, por gentileza confirme suas informações e tente novamente',
       esqueciSenha: false,
+      has_some_error: false,
     };
   },
   methods: {
-    validaForm() {
+    validaForm() {      
       if (this.email.trim() == '') {
         this.emailInvalido = true;
-
-        setTimeout(() => {
-          this.emailInvalido = false;
-        }, 2000);
-      } else if (this.senha.trim() == '') {
+        this.emailHasError = true;
+        this.has_some_error = true;
+      }
+      
+      if (this.senha.trim() == '') {
         this.senhaInvalida = true;
+        this.senhaHasError = true;
+        this.has_some_error = true;
+      }
 
-        setTimeout(() => {
-          this.senhaInvalida = false;
-        }, 2000);
-      } else {
+      if (!has_some_error) {
         this.fazerLogin();
       }
     },

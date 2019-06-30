@@ -1,5 +1,5 @@
 <template>
-  <div class="main_banner">
+  <div class="main_banner" title="Banner principal">
     <div class="container height_100">
       <div class="main_banner_content_container height_100">
         <div class="main_banner_content">

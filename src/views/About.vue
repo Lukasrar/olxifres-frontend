@@ -35,7 +35,7 @@
                 data-aos-duration="1500"
                 class="coluna-larg-3 coluna-small-12 perfil"
               >
-                <img src="../assets/img/img_avatar.png" alt class="foto">
+                <img src="../assets/img/img_avatar.png" alt="foto de perfil" class="foto">
                 <h3 class="nome">Luiz Fernando</h3>
                 <div class="descricao">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis dui eu velit
@@ -59,7 +59,7 @@
                 data-aos-duration="2000"
                 class="coluna-larg-3 coluna-small-12 perfil"
               >
-                <img src="../assets/img/img_avatar.png" alt class="foto">
+                <img src="../assets/img/img_avatar.png" alt="foto de perfil" class="foto">
                 <h3 class="nome">Patrick Freitas</h3>
                 <div class="descricao">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis dui eu velit
@@ -83,7 +83,7 @@
                 data-aos-duration="2500"
                 class="coluna-larg-3 coluna-small-12 perfil"
               >
-                <img src="../assets/img/img_avatar.png" alt class="foto">
+                <img src="../assets/img/img_avatar.png" alt="foto de perfil" class="foto">
                 <h3 class="nome">Iago Nunes</h3>
                 <div class="descricao">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis dui eu velit
@@ -107,7 +107,7 @@
                 data-aos-duration="3000"
                 class="coluna-larg-3 coluna-small-12 perfil"
               >
-                <img src="../assets/img/img_avatar.png" alt class="foto">
+                <img src="../assets/img/img_avatar.png" alt="foto de perfil" class="foto">
                 <h3 class="nome">Lukas Rodrigo</h3>
                 <div class="descricao">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis dui eu velit

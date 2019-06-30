@@ -28,6 +28,7 @@ export default {
   padding: 0;
   font-family: sans-serif;
   box-sizing: border-box;
+  outline: 0;
 }
 
 button,
@@ -45,6 +46,12 @@ input[type='reset'],
 input[type='submit'] {
   -webkit-appearance: button;
   cursor: pointer;
+}
+
+input[type='email']:focus,
+input[type='password']:focus,
+input[type='text']:focus {
+  border: 2px solid #078a06;  
 }
 
 h1,
@@ -575,17 +582,20 @@ h6 {
 }
 
 .error label {
-  color: #cc0033;
+  color: #cc0033 !important;
 }
 
 .error input {
-  background-color: #fce4e4;
-  border: 1px solid #cc0033;
+  background-color: #fce4e4 !important;
   outline: none;
 }
 
+.error input:focus {
+  border: 2px solid #cc0033 !important;
+}
+
 .error .error-message {
-  color: #cc0033;
+  color: #cc0033 !important;
   display: inline-block;
   font-size: 12px;
   line-height: 15px;
@@ -593,9 +603,6 @@ h6 {
   text-align: justify;
 }
 
-.error-message {
-  display: none;
-}
 @media screen and (max-width: 424px) {
   input {
   }
@@ -804,19 +811,12 @@ h6 {
 }
 
 .header li a:hover,
-.header .menu-btn:hover {
+.header li a:focus,
+.header .menu-btn:hover,
+.header .menu-btn:focus  {
   color: #ffffff !important;
-  background: #078a06;
+  background: #078a06;  
 }
-
-.header .logo {
-  display: block;
-  float: left;
-  font-size: 2em;
-  padding: 10px 20px;
-  text-decoration: none;
-}
-
 /* menu */
 
 .header .menu {
@@ -940,10 +940,15 @@ h6 {
   width: 150px;
   cursor: pointer;
   transition: all 0.3s;
+  display: block;
+  float: left;
+  font-size: 2em;
+  padding: 10px 20px;
+  text-decoration: none;
 }
 
+.logo:focus,
 .logo:hover {
-  transform: scale(1.05);
 }
 
 .main_banner {
@@ -1133,7 +1138,8 @@ h6 {
 .nome {
   font-weight: bold;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 20px;
+  padding-bottom: 5px;
   border-bottom: #078a06 2px solid;
 }
 
@@ -1221,13 +1227,15 @@ h6 {
   font-family: 'Hind', sans-serif;
   letter-spacing: 0.5px;
   text-shadow: 1px 1px 3px #201f1d;
-  background: linear-gradient(to bottom, #78c754 5%, #397a18 100%);
-  background-color: #78c754;
-  border: 1px solid #3b6e22;
-  box-shadow: 0px 0px 0px 0px #9acc85;
+  background-color: #2b2b2b;
   border: none;
   cursor: pointer;
   margin: 0px 20px 0px 0px;
+}
+
+.ver_mais_btn a:hover,
+.ver_mais_btn a:focus {
+  text-decoration: underline;
 }
 
 .ver_mais_btn .criar_leilao {
@@ -1244,12 +1252,6 @@ h6 {
   justify-content: left;
   align-items: left;
   flex-direction: row;
-}
-
-.ver_mais_btn a:hover {
-  box-shadow: 0px 0px 0px 0px #9acc85;
-  background: linear-gradient(to bottom, #64a745 5%, #336d16 100%);
-  background-color: #67a849;
 }
 
 .ver_mais_btn:active {
@@ -1386,15 +1388,30 @@ h6 {
   content: '';
 }
 
+.link-social .fab {
+  margin: 8px 10px;
+}
+
 .link-social:link,
 .link-social:visited {
-  text-decoration: none;
+  text-decoration: underline;
   color: #024e02;
+}
+
+
+.link-social:focus,
+.link-social:hover {
+  background: #024e02;
+  color: #fff;
 }
 
 .fab {
   font-size: 25px !important;
   margin: 8px 10px 8px 0px;
+}
+
+.footer_links .fab, .footer_links_grid .fab {
+  font-size: 20px !important;  
 }
 
 .descricao {
@@ -1451,7 +1468,7 @@ h6 {
 
 .info_olx_item {
   height: 100px;
-  background: #dedede;
+  border: 1px solid #024e02;
   padding-left: 20px;
   align-items: center;
   flex-direction: row;
@@ -1586,7 +1603,7 @@ footer {
   color: #acaab3;
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
   text-align: justify;
-  line-height: 1.4;
+  line-height: 1.6;
   margin: 10px 15px 15px 0px;
 }
 
@@ -1600,10 +1617,6 @@ footer {
   content: '';
 }
 
-.footer_links {
-  margin: 10px 0px;
-}
-
 .footer_links i {
   width: 25px;
 }
@@ -1614,12 +1627,28 @@ footer {
   font-size: 15px;
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
   transition: 0.3s all;
-  margin: 5px 0px;
 }
 
-.footer_links a:hover {
+.footer_links li {
+  margin: 10px 0px;
+}
+
+.footer_links a:focus, .footer_links a:hover, .footer_links_grid a:focus, .footer_links_grid a:hover {
   color: #fff;
   text-shadow: none;
+  text-decoration: underline;
+}
+
+.footer_links_grid a {  
+  color: #acaab3;
+  display: block;
+  font-size: 15px;
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+  transition: 0.3s all;  
+  display: grid;
+  grid-template-columns: 1fr 12fr;
+  grid-gap: 1rem;
+  align-items: center;
 }
 
 /*********************************
@@ -1683,7 +1712,7 @@ Página de contato
   text-align: justify;
   font-size: 14.5px;
   color: #000;
-  line-height: 25px;
+  line-height: 27px;
 }
 
 .icon_st_1 {
@@ -1752,19 +1781,21 @@ Página de contato
   text-transform: uppercase;
   line-height: 1;
   font-family: 'Fira Sans Condensed', sans-serif;
-  margin-bottom: 5px;
+  margin: 10px 0px;
   text-shadow: 1px 1px 4px rgb(255, 255, 255);
-  padding: 0px 10px 0px 0px;
+  padding: 10px 10px 0px 0px;
   color: #282828;
+  transition: all 0.3s;
 }
 
 .bread {
   margin: 20px 0px;
 }
 
-.bread a:hover {
+.bread a:hover, .bread a:focus {
   cursor: pointer;
   text-decoration: underline;
+  font-size: 21px;
 }
 
 img {
