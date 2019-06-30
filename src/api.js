@@ -12,6 +12,10 @@ const api = {
   post(url, params, config) {
     return client.post(url, params, config);
   },
+
+  put(url, params, config) {
+    return client.put(url, params, config);
+  },
 };
 
 export default {

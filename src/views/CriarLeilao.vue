@@ -72,7 +72,7 @@
                 :status="animal.status"
                 :lance_minimo="animal.lance_minimo"
                 :foto="animal.foto"
-                :key="animal.id_animal"
+                :key="animal.id_leilao"
               />
             </div>
           </div>
