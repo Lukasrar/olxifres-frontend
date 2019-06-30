@@ -2,29 +2,36 @@
   <div class="login">
     <div class="login-screen">
       <transition name="slide-fade">
-        <ErrorBox v-if="errouLogin" :tituloErro="tituloErro" :sugestao="sugestao"/>
+        <ErrorBox
+          v-if="errouLogin"
+          tituloErro="Usuário ou senha incorreto!"
+          sugestao="Houve um erro ao realizar seu login, por gentileza confirme suas informações e tente novamente"
+        />
       </transition>
       <form class="login-form" @submit.prevent="validaForm" novalidate>
         <h1 class="app-title">Entrar</h1>
-        <div class="control-group" v-bind:class="{ 'error': emailHasError }">
+        <div class="control-group" :class="{ 'error': emailValidation }">
           <label class="label-form">E-mail</label>
-          <input v-model="email" type="email" class="login-field" placeholder="Informe seu e-mail" 
-          oninvalid="this.setCustomValidity('Você deve informar um e-mail válido no formato: usuario@email.com')"
-          oninput="this.setCustomValidity('')">
-          <div class="error-message" v-if="emailInvalido"> Por favor, informe um email válido no campo acima. <br> Formato: usuario@email.com </div>
+          <input v-model="email" type="email" class="login-field" placeholder="Informe seu e-mail" />
+          <div class="error-message" v-if="emailValidation">
+            Por favor, informe um email válido no campo acima.
+            <br />Formato: usuario@email.com
+          </div>
         </div>
-        <div class="control-group" v-bind:class="{ 'error': senhaHasError }">
+        <div class="control-group" v-bind:class="{ 'error': !$v.senha.required && $v.$error }">
           <label for="login-pass" class="label-form">Senha</label>
           <input
             v-model="senha"
             type="password"
             class="login-field"
             placeholder="Informe sua senha"
-          >
-          <div class="error-message" v-if="senhaInvalida">Por favor, informe a sua senha no campo acima.</div>
+          />
+          <div
+            class="error-message"
+            v-if="!$v.senha.required && $v.$error"
+          >Por favor, informe a sua senha no campo acima.</div>
         </div>
-        <!-- <input type="submit" class="btn" value="Login"> -->
-        <input type="submit" class="btn" value="Login">
+        <input type="submit" class="btn" value="Login" />
         <div class="links">
           <button
             class="login-link"
@@ -36,22 +43,6 @@
           >Esqueci minha senha</button>
         </div>
       </form>
-
-      <!-- <form class="login-form" v-if="esqueciSenha">
-        <h1 class="app-title">Recuperar senha</h1>
-        <div class="recuperar-senha">
-          <p>Iremos lhe enviar um email que contém um link para redefinir sua senha, basta apenas informar o e-mail registrado.</p>
-        </div>
-        <div class="control-group">
-          <label for="recEmail" class="label-form">E-mail</label>
-          <input v-model="email" type="email" class="login-field" placeholder="Informe seu email.">
-          <transition name="slide-fade">
-            <p class="help-log" v-if="emailInvalido">Favor, insira um e-mail válido.</p>
-          </transition>
-          <input type="submit" class="btn" value="Enviar">
-          <input type="button" class="btn" value="Cancelar" @click.prevent='esqueciSenha = !esqueciSenha'>
-        </div>
-      </form> -->
     </div>
   </div>
 </template>
@@ -60,6 +51,7 @@
 import { mapActions } from 'vuex';
 import { setTimeout } from 'timers';
 import ErrorBox from '../components/layout/ErrorBox';
+import { required, email } from 'vuelidate/lib/validators';
 
 export default {
   name: 'Login',
@@ -71,34 +63,32 @@ export default {
       email: 'lukasrar@hotmail.com',
       senha: 'lukas123',
       errouLogin: false,
-      emailInvalido: false,
-      senhaInvalida: false,
-      tituloErro: 'Usuário ou senha incorreto!',
-      sugestao: 'Houve um erro ao realizar seu login, por gentileza confirme suas informações e tente novamente',
       esqueciSenha: false,
-      has_some_error: false,
     };
   },
-  methods: {
-    validaForm() {      
-      if (this.email.trim() == '') {
-        this.emailInvalido = true;
-        this.emailHasError = true;
-        this.has_some_error = true;
-      }
-      
-      if (this.senha.trim() == '') {
-        this.senhaInvalida = true;
-        this.senhaHasError = true;
-        this.has_some_error = true;
-      }
-
-      if (!has_some_error) {
-        this.fazerLogin();
-      }
+  validations: {
+    email: {
+      required,
+      email,
     },
-
+    senha: {
+      required,
+    },
+  },
+  computed: {
+    emailValidation() {
+      return (!this.$v.email.required || !this.$v.email.email) && this.$v.$error;
+    },
+  },
+  methods: {
     ...mapActions(['setUsuario']),
+    async validaForm() {
+      this.$v.$touch();
+
+      if (this.$v.$error) return;
+
+      await this.fazerLogin();
+    },
     async fazerLogin() {
       const { email, senha } = this;
       this.errouLogin = false;
