@@ -1094,6 +1094,10 @@ h6 {
   cursor: pointer;
   margin: 10px 0px;
 }
+.btn-lance:disabled{
+  opacity: .8;
+  cursor: not-allowed;
+}
 
 .btn-lance:hover {
   -webkit-box-shadow: 0px 0px 0px 0px #9acc85;

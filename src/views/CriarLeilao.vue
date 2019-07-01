@@ -63,7 +63,7 @@
 
           <div class="coluna-small-12 coluna-larg-6">
             <div class="container-logs-leiloes">
-              <h2 class="title_section">Leilões ativos para comparação</h2>
+              <h2 class="title_section">Leilões para comparação</h2>
               <LogLeilaoAtivo
                 v-for="animal in animais"
                 :raca="animal.raca"
