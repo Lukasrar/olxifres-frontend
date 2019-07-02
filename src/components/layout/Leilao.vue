@@ -7,6 +7,7 @@
       class="ultimos_leiloes_item align-items-center"
       :style="{'background-image': `url(${getBase64Src(foto)})`}"
     >
+      <span role="img" :aria-label="'Imagem de um animal da raça' + racaAnimal" style="display: none">  </span>
       <div class="ultimos_leiloes_estado">
         <a>R${{lanceMinimo}}</a>
       </div>

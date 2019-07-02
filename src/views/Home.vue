@@ -1,5 +1,9 @@
 <template>
   <div class="home">
+    <vue-headful
+        title="Olxifres - Leilão de gados online"
+        description="Página inicial."
+    />
     <Header/>
     <InfosHeader/>
     <UltimosLeiloes/>

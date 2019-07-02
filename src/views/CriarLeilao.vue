@@ -2,6 +2,10 @@
   <div>
     <HeaderInterno v-bind:view="view" v-bind:rota="rota"/>
     <div class="container">
+    <vue-headful
+        title="Criar leilão | Olxifres"
+        description="Página disponível para criação de um novo leilão."
+    />
       <div class="row align-items-center">
         <div class="content_page">
           <div class="coluna-small-12 coluna-larg-6">

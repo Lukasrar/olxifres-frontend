@@ -1,12 +1,16 @@
 <template>
   <div class="container_page">
+    <vue-headful
+        title="Detalhes do leilão | Olxifres"
+        description="Página disponível para visualização de dos detalhes de um leilão específico."
+    />
     <div class="container">
       <div class="row">
         <div class="coluna-small-12 coluna-larg-8">
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img class="d-block w-100" :src="getBase64Src(leilao.foto)" alt="First slide" />
+                <img class="d-block w-100" :src="getBase64Src(leilao.foto)" :alt="'Imagem do animal em leilão de raça' + leilao.raca" style="display: none"/>
               </div>
               <!-- <div class="carousel-item">
                 <img class="d-block w-100" src="../assets/img/banner_2.jpg" alt="Second slide">

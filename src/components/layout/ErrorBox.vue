@@ -16,18 +16,22 @@ export default {
 .login_mensagem-erro {
   box-sizing: border-box;
   width: 320px;
-  border: 2px solid tomato;
-  border-radius: 4px;
-  margin: 10px 0;
-  padding: 5px;
-
+  border: 2px solid rgb(255, 38, 0);
+  border-radius: 2px;
+  margin: 15px 0px;
+  padding: 10px;
+  line-height: 12px;
+  text-align: justify;
 }
 
 .login_mensagem-erro * {
-  color: #fff;
+  color: rgb(0, 0, 0);
+  line-height: 17px;
 }
 
 .login_mensagem-erro_title {
-  color: tomato;
+  color: rgb(255, 38, 0);
+  margin: 0px 0px 15px;
+  text-align: center;
 }
 </style>

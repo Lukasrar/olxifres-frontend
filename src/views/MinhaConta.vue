@@ -1,5 +1,9 @@
 <template>
   <div class="container">
+    <vue-headful
+        title="Minha conta | Olxifres"
+        description="Página disponível para visualização de dados do perfil."
+    />
     <div class="row align-items-center">
       <div class="content_page">
         <div class="coluna-small-12 coluna-larg-6">

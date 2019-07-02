@@ -3,7 +3,7 @@
     <div class="coluna-small-7 coluna-larg-2">
       <div class="container-logo">
         <router-link tag="a" to="/">
-          <img alt="Olxifres" class="logo" src="../../assets/img/logo.png">
+          <img alt="Imagem da logomarca da empresa com a palavra Olxifres na cor preto e verde." class="logo" src="../../assets/img/logo.png">
         </router-link>
       </div>
     </div>

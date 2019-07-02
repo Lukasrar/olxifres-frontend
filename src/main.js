@@ -13,6 +13,10 @@ import Vuelidate from 'vuelidate';
 
 import dotenv from 'dotenv';
 
+import vueHeadful from 'vue-headful';
+
+Vue.component('vue-headful', vueHeadful);
+
 dotenv.config();
 
 Vue.use(api);

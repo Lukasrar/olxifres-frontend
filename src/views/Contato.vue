@@ -1,5 +1,9 @@
 <template>
   <div>
+    <vue-headful
+        title="Informações de contato | Olxifres"
+        description="Página disponível para visualização das informações de contato da Olxifres."
+    />
     <div class="main_banner_300 banner_4">
         <div class="container height_100">
             <div class="main_banner_content_container height_100">

@@ -2,6 +2,10 @@
   <section>
     <article>
       <HeaderInterno/>
+      <vue-headful
+          title="Lista de leilões | Olxifres"
+          description="Página destinada à visualização de leilões ativos do sistema."
+      />
       <div class="container">
         <div class="row">
           <div class="coluna-larg-10 section_title_container">

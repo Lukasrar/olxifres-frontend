@@ -594,6 +594,10 @@ h6 {
   border: 2px solid #cc0033 !important;
 }
 
+.error-message {
+  display: none;
+}
+
 .error .error-message {
   color: #cc0033 !important;
   display: inline-block;
@@ -601,6 +605,19 @@ h6 {
   line-height: 15px;
   margin: 5px 0 0;
   text-align: justify;
+}
+
+.legenda-form {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: left;
+  display: block;
+  width: 100%;
+  margin: 5px 0px 10px;
+}
+
+.legenda-form i {
+  font-size: 11px;
 }
 
 @media screen and (max-width: 424px) {
