@@ -65,6 +65,7 @@
             <form action class="form-lance" @submit.prevent="darLance">
               <label for="valor">
                 <strong>Valor:</strong>
+                <p class="obs">Deve ser maior que o último lance do leilão.</p>
               </label>
               <input
                 v-model="valor"
@@ -72,7 +73,12 @@
                 placeholder="Informe o valor do lance"
                 class="input-valor input-100"
               />
-              <input type="submit" value="Dar lance" class="animated infinite pulse btn-lance" />
+              <input
+                type="submit"
+                value="Dar lance"
+                :disabled="leilao.status === 1"
+                class="animated infinite pulse btn-lance"
+              />
             </form>
             <div class="log-leilao">
               <div class="log-title-container">
@@ -118,6 +124,7 @@ export default {
     return {
       leilao: {},
       valor: null,
+      finalizado: false,
     };
   },
   computed: {
@@ -131,6 +138,11 @@ export default {
   },
   async mounted() {
     await this.buscarLeilao();
+    this.$noty.error('Leilão encerrado!', {
+      killer: true,
+      timeout: 3000,
+      layout: 'topRight',
+    });
   },
   methods: {
     async buscarLeilao() {
@@ -157,5 +169,9 @@ export default {
 };
 </script>
 
-<style>
+<style >
+.obs {
+  color: red !important;
+  font-weight: 700;
+}
 </style>

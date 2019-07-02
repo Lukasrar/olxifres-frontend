@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeaderInterno v-bind:view="view" v-bind:rota="rota"/>
+    <HeaderInterno v-bind:view="view" v-bind:rota="rota" />
     <div class="container">
     <vue-headful
         title="Criar leilão | Olxifres"
@@ -14,32 +14,32 @@
 
               <div class="input-group" :class="{ 'error' : !$v.raca.required && $v.$error}">
                 <label class="label-info">Raça: *</label>
-                <input type="text" v-model="raca" class="input-info">
+                <input type="text" v-model="raca" class="input-info" />
               </div>
               <div class="input-group" :class="{ 'error' : !$v.nascimento.required && $v.$error}">
                 <label class="label-info">Data de nascimento do animal: *</label>
                 <p class="help">Informe os dados da seguinte forma: mes/dia/ano</p>
-                <input type="date" v-model="nascimento" class="input-info">
+                <input type="date" v-model="nascimento" class="input-info" />
               </div>
               <div class="input-group">
                 <label class="label-info">Cor:</label>
                 <p class="help">Informe a cor predominante do animal.</p>
-                <input type="text" v-model="cor" class="input-info">
+                <input type="text" v-model="cor" class="input-info" />
               </div>
               <div class="input-group" :class="{ 'error' : !$v.peso.required && $v.$error}">
                 <label class="label-info">Peso: *</label>
                 <p class="help">Informe o peso em kg.</p>
-                <input type="number" v-model="peso" class="input-info">
+                <input type="number" v-model="peso" class="input-info" />
               </div>
               <div class="input-group" :class="{ 'error' : !$v.lance.required && $v.$error}">
                 <label class="label-info">Lance Inicial: *</label>
                 <p class="help">Informe o valor inicial do leilão.</p>
-                <input type="number" v-model="lance" class="input-info">
+                <input type="number" v-model="lance" class="input-info" />
               </div>
               <div class="input-group" :class="{ 'error' : !$v.dataFim.required && $v.$error}">
                 <label class="label-info">Data fim do leilão: *</label>
                 <p class="help">Informe a data de encerramento do leilão.</p>
-                <input type="date" v-model="dataFim" class="input-info">
+                <input type="date" v-model="dataFim" class="input-info" />
               </div>
               <div class="input-group">
                 <label for="fotos" class="label-info">Escolha a foto do animal: *</label>
@@ -61,13 +61,13 @@
                    }"
                 />
               </div>
-              <input type="submit" value="Iniciar leilão" class="btn">
+              <input type="submit" value="Iniciar leilão" class="btn" />
             </form>
           </div>
 
           <div class="coluna-small-12 coluna-larg-6">
             <div class="container-logs-leiloes">
-              <h2 class="title_section">Leilões ativos para comparação</h2>
+              <h2 class="title_section">Leilões para comparação</h2>
               <LogLeilaoAtivo
                 v-for="animal in animais"
                 :raca="animal.raca"
@@ -167,7 +167,7 @@ export default {
     async criarLeilao() {
       this.$v.$touch();
 
-      if (this.$v.error) return;
+      if (this.$v.$error) return;
 
       try {
         const formData = new FormData();

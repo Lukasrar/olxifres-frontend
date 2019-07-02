@@ -15,6 +15,7 @@
           <div class="error-message"> Por favor, informe um email válido no campo acima. <br> Formato: usuario@email.com </div>
         </div>
         <div class="control-group" :class="{ 'error' : !$v.senha.required && $v.$error}">
+
           <label for="login-pass" class="label-form">Senha</label>
           <input
             v-model="senha"
@@ -40,22 +41,6 @@
           >Esqueci minha senha</button>
         </div>
       </form>
-
-      <!-- <form class="login-form" v-if="esqueciSenha">
-        <h1 class="app-title">Recuperar senha</h1>
-        <div class="recuperar-senha">
-          <p>Iremos lhe enviar um email que contém um link para redefinir sua senha, basta apenas informar o e-mail registrado.</p>
-        </div>
-        <div class="control-group">
-          <label for="recEmail" class="label-form">E-mail</label>
-          <input v-model="email" type="email" class="login-field" placeholder="Informe seu email.">
-          <transition name="slide-fade">
-            <p class="help-log" v-if="emailInvalido">Favor, insira um e-mail válido.</p>
-          </transition>
-          <input type="submit" class="btn" value="Enviar">
-          <input type="button" class="btn" value="Cancelar" @click.prevent='esqueciSenha = !esqueciSenha'>
-        </div>
-      </form> -->
     </div>
   </div>
 </template>
@@ -64,7 +49,7 @@
 import { mapActions } from 'vuex';
 import { setTimeout } from 'timers';
 import ErrorBox from '../components/layout/ErrorBox';
-import { required, minLength, between } from 'vuelidate/lib/validators';
+import { required, email } from 'vuelidate/lib/validators';
 
 export default {
   name: 'Login',
@@ -89,8 +74,20 @@ export default {
       required,
     },
   },
+  computed: {
+    emailValidation() {
+      return (!this.$v.email.required || !this.$v.email.email) && this.$v.$error;
+    },
+  },
   methods: {
     ...mapActions(['setUsuario']),
+    async validaForm() {
+      this.$v.$touch();
+
+      if (this.$v.$error) return;
+
+      await this.fazerLogin();
+    },
     async fazerLogin() {
       const { email, senha } = this;
       this.errouLogin = false;
