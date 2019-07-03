@@ -140,7 +140,7 @@ export default {
     await this.buscarLeilao();
     this.$noty.error('Leilão encerrado!', {
       killer: true,
-      timeout: 3000,
+      timeout: 2000,
       layout: 'topRight',
     });
   },

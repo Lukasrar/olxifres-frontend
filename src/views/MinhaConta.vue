@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <vue-headful
-        title="Minha conta | Olxifres"
-        description="Página disponível para visualização de dados do perfil."
+      title="Minha conta | Olxifres"
+      description="Página disponível para visualização de dados do perfil."
     />
     <div class="row align-items-center">
       <div class="content_page">
@@ -86,6 +86,7 @@
                 :status="animal.status"
                 :lance_minimo="animal.lance_minimo"
                 :key="animal.id_animal"
+                :foto="animal.foto"
               />
             </div>
           </div>
@@ -101,6 +102,7 @@
                 :lance_minimo="animal.lance_minimo"
                 :status="animal.status"
                 :key="animal.id_animal"
+                :foto="animal.foto"
               />
             </div>
           </div>
