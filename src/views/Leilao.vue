@@ -10,7 +10,7 @@
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img class="d-block w-100" :src="getBase64Src(leilao.foto)" :alt="'Imagem do animal em leilão de raça' + leilao.raca" style="display: none"/>
+                <img class="img-leilao" :src="getBase64Src(leilao.foto)" :alt="'Imagem do animal em leilão de raça' + leilao.raca"/>
               </div>
               <!-- <div class="carousel-item">
                 <img class="d-block w-100" src="../assets/img/banner_2.jpg" alt="Second slide">
@@ -173,5 +173,9 @@ export default {
 .obs {
   color: red !important;
   font-weight: 700;
+}
+
+.img-leilao{
+  width: 100%;
 }
 </style>

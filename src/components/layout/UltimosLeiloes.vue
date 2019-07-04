@@ -13,6 +13,7 @@
           :foto="leilao.foto"
           :idLeilao="leilao.id_leilao"
           :racaAnimal="leilao.raca"
+          :lanceMinimo='leilao.lance_minimo'
         />
       </div>
     </div>
