@@ -138,8 +138,12 @@ export default {
     ...mapActions(['setUsuario']),
     async salvar() {
       await this.$api.put('/usuario', this.usuario);
-
       this.setUsuario(this.usuario);
+      this.$noty.success('Perfil atualizado com sucesso!', {
+        killer: true,
+        timeout: 4000,
+        layout: 'topRight',
+      });
     },
     preencherUsuario() {
       this.usuario = cloneDeep(this.getUsuario);

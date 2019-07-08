@@ -48,17 +48,17 @@
           <ul class="footer_links_grid">
             <li>
               <a href="#">
-                <i class="fab fa-fw fa-facebook-f"/> Facebook
+                <i class="fab fa-fw fa-facebook-f" /> Facebook
               </a>
             </li>
             <li>
               <a href="#">
-                <i class="fab fa-fw fa-instagram"/>Instagram
+                <i class="fab fa-fw fa-instagram" />Instagram
               </a>
             </li>
             <li>
               <a href="#">
-                <i class="fab fa-fw fa-twitter"/> Twitter
+                <i class="fab fa-fw fa-twitter" /> Twitter
               </a>
             </li>
           </ul>
@@ -66,17 +66,17 @@
           <ul class="footer_links_grid">
             <li>
               <router-link tag="a" to="/contato">
-                <i class="fas fa-fw fa-mobile-alt"/> (34) 3220-0000
+                <i class="fas fa-fw fa-mobile-alt" /> (34) 3220-3400
               </router-link>
             </li>
             <li>
               <router-link tag="a" to="/contato">
-                <i class="fab fa-fw fa-whatsapp"/> (11) 99000-0000
+                <i class="fab fa-fw fa-whatsapp" /> (34) 9 9876-9584
               </router-link>
             </li>
             <li>
               <router-link tag="a" to="/contato">
-                <i class="fas fa-fw fa-map-marker-alt"/> Av. Central, n° 500 -Centro
+                <i class="fas fa-fw fa-map-marker-alt" /> R. Blanche Galassi, 150 - Altamira, Uberlândia - MG
               </router-link>
             </li>
           </ul>
