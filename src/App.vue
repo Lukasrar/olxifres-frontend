@@ -1143,12 +1143,16 @@ h6 {
 }
 
 .foto {
-  width: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: auto;
   border-radius: 50%;
+}
+
+.foto-lukas{
+  width: 200px;
+  height: 200px;
 }
 
 .perfil {
