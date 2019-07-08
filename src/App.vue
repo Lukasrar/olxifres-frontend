@@ -1850,4 +1850,56 @@ img {
 .secondary_text_infos {
   color: #000;
 }
+
+.card-home {
+  border: 3px solid #024e02;
+  height: 450px;
+  margin: 40px 0px;
+  background: #f8fff8;
+}
+
+.card-home h3 {
+  text-align: center;
+  margin: 30px 0px;
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 1;
+  font-family: 'Fira Sans Condensed', sans-serif;
+}
+
+.card-home p {  
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 500;
+  color: #000;
+  margin: 20px;
+  text-align: justify;
+  height: 160px;
+}
+
+.card-home a {
+  text-decoration: underline;
+}
+
+.btn-card {
+  display: block;
+  padding: 20px 40px;
+  text-align: center; 
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 20px;
+  width: 80%;
+  font-family: 'Hind', sans-serif;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 3px #201f1d;
+  background-color: #2b2b2b;
+  border: none;
+  cursor: pointer;
+  margin: 60px auto;
+}
 </style>
+

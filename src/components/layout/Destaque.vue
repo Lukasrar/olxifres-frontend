@@ -1,37 +1,34 @@
 <template>
   <div class="destaque_semanal">
     <div class="container">
-      <div class="row align-items-center">
-        <div class="coluna-small-12 coluna-larg-6">
-          <div class="destaque_semanal_img">
-            <img src="../../assets/img/destaque_semanal.jpg" class="main_image" alt>
-            <img src="../../assets/img/destaque_semanal.jpg" class="bk_image" alt>
+      <div class="row">
+        <div class="coluna-small-12 coluna-med-12 section_title_container">
+          <h2 class="title_section">Oque você procura?</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="coluna-small-12 coluna-med-4">
+          <div class="card-home">
+            <h3> Anunciar gados </h3>
+            <p> Vender online nunca foi tão fácil! Na <b>OLXifres</b> milhares de animais são vendidos todos os dias. <b>Anuncie</b> e realize tudo o que quiser. Desapega, desapega! 
+                Basta acessar a sua conta e seguir os próximos passos. Se ainda não tiver uma conta na OLXifres, basta <a href="">criar uma agora</a>! :) </p>
+            <router-link to="/criar-leilao" class="btn-card"> Anunciar agora </router-link>
           </div>
         </div>
-        <div class="coluna-small-12 coluna-larg-6 text-right">
-          <div class="destaque_semanal_content">
-            <div class="section_title">
-              <h2>Destaque da semana</h2>
-            </div>
-            <div class="descricao">
-              O criatório Yuri sem dúvida alguma, é um criatório de destaque dentro da raça Mangalarga
-              Marchador. Basta avaliarmos os resultados
-              em pista e iremos comprovar essa afirmação! Aqui temos um legítimo representante desse
-              trabalho! Tostão do Yuri é irmão próprio da
-              campeoníssima em pista, Razão Do Yuri. Cavalo que tem em sua genética marchadores que
-              marcaram época na raça e até hoje produzem
-              filhos campeões em pista! Seu pai é o campeão nacional Mustafá do Yuri, portanto
-              genética da Hera de Dourado SM, considerado por
-              muitos uma das éguas de mais destaque na raça. Já sua mãe, Baliza Secretário, é égua
-              super premiada em pista, inclusive com vários
-              campeonatos de progênie de mãe o que comprova seu destaque na reprodução!!! Grande
-              oportunidade de adquirir 100% das cotas desse
-              grande reprodutor.
-            </div>
-            <div class="tabela-dados"></div>
-            <div class="ver_mais_btn center_block">
-              <a href="#">Ver detalhes</a>
-            </div>
+        <div class="coluna-small-12 coluna-med-4">
+          <div class="card-home">
+            <h3> Comprar gados </h3>
+            <p> Comprar online nunca foi tão fácil! Na <b>OLXifres</b> milhares de animais são vendidos todos os dias. <b>Compre</b> e realize tudo o que quiser.
+                Basta escolher o animal que mais te agrada e realizar a compra de maneira simples, fácil e rápida!</p>
+            <router-link to="/criar-leilao" class="btn-card"> Comprar agora </router-link>
+          </div>
+        </div>
+        <div class="coluna-small-12 coluna-med-4">
+          <div class="card-home">
+            <h3> Conhecer mais </h3>
+            <p> <b>Conheça a história</b> por trás do mercado de gados inovado por parte da <b>OLXifres</b>, onde milhares de animais são vendidos todos os dias.
+              Entre em contato para mais informações, estaremos a disposição para atendê-lo. </p>
+            <router-link to="/about" class="btn-card"> Conhecer a Olxifres </router-link>
           </div>
         </div>
       </div>
@@ -41,7 +38,7 @@
 
 <script>
 export default {
-    name: 'DestaqueDaSemana'
+  name: 'DestaqueDaSemana',
 };
 </script>
 

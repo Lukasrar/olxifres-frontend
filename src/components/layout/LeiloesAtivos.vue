@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="coluna-small-12 coluna-med-12 section_title_container">
-          <h3 class="title_section">Leilões em progresso</h3>
+          <h2 class="title_section">Leilões em progresso</h2>
         </div>
       </div>
       <div class="row leiloes-ativos">
