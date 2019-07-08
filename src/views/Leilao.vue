@@ -1,8 +1,8 @@
 <template>
   <div class="container_page">
     <vue-headful
-        title="Detalhes do leilão | Olxifres"
-        description="Página disponível para visualização de dos detalhes de um leilão específico."
+      title="Detalhes do leilão | Olxifres"
+      description="Página disponível para visualização de dos detalhes de um leilão específico."
     />
     <div class="container">
       <div class="row">
@@ -10,7 +10,11 @@
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img class="img-leilao" :src="getBase64Src(leilao.foto)" :alt="'Imagem do animal em leilão de raça' + leilao.raca"/>
+                <img
+                  class="img-leilao"
+                  :src="getBase64Src(leilao.foto)"
+                  :alt="'Imagem do animal em leilão de raça' + leilao.raca"
+                />
               </div>
               <!-- <div class="carousel-item">
                 <img class="d-block w-100" src="../assets/img/banner_2.jpg" alt="Second slide">
@@ -19,21 +23,11 @@
                 <img class="d-block w-100" src="../assets/img/banner_3.jpg" alt="Third slide">
               </div>-->
             </div>
-            <a
-              class="carousel-control-prev"
-              href="#carouselExampleControls"
-              role="button"
-              data-slide="prev"
-            >
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
-            <a
-              class="carousel-control-next"
-              href="#carouselExampleControls"
-              role="button"
-              data-slide="next"
-            >
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
@@ -50,29 +44,24 @@
             </div>
             <div class="detalhes-leilao">
               <span>Código do leilão</span>
-              <span>{{leilao.id_leilao}}</span>
+              <span>{{ leilao.id_leilao }}</span>
               <span>Lance mínimo</span>
-              <span>{{leilao.lance_minimo}}</span>
+              <span>{{ leilao.lance_minimo }}</span>
               <span>Data do leilão</span>
-              <span>{{formatarData(leilao.data)}}</span>
+              <span>{{ formatarData(leilao.data) }}</span>
               <span>Raça</span>
-              <span>{{leilao.raca}}</span>
+              <span>{{ leilao.raca }}</span>
               <span>Peso</span>
-              <span>{{leilao.peso}}</span>
+              <span>{{ leilao.peso }}</span>
               <span>Cor</span>
-              <span>{{leilao.cor}}</span>
+              <span>{{ leilao.cor }}</span>
             </div>
             <form action class="form-lance" @submit.prevent="darLance">
               <label for="valor">
                 <strong>Valor:</strong>
                 <p class="obs">Deve ser maior que o último lance do leilão.</p>
               </label>
-              <input
-                v-model="valor"
-                type="text"
-                placeholder="Informe o valor do lance"
-                class="input-valor input-100"
-              />
+              <input v-model="valor" type="text" placeholder="Informe o valor do lance" class="input-valor input-100" />
               <input
                 type="submit"
                 value="Dar lance"
@@ -85,7 +74,7 @@
                 <p class="log-title">Ultimos lances</p>
               </div>
               <ul class="log-ul">
-                <li class="log" v-for="lance in lances" :key="lance.id_lance">{{lance.valor}}</li>
+                <li class="log" v-for="lance in lances" :key="lance.id_lance">{{ lance.valor }}</li>
               </ul>
             </div>
           </div>
@@ -126,6 +115,15 @@ export default {
       valor: null,
       finalizado: false,
     };
+  },
+  watch: {
+    '$route.params.idLeilao': {
+      handler(value) {
+        if (!value) return;
+
+        this.buscarLeilao();
+      },
+    },
   },
   computed: {
     ...mapGetters({ usuario: 'getUsuario' }),
@@ -169,13 +167,13 @@ export default {
 };
 </script>
 
-<style >
+<style>
 .obs {
   color: red !important;
   font-weight: 700;
 }
 
-.img-leilao{
+.img-leilao {
   width: 100%;
 }
 </style>
