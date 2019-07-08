@@ -3,11 +3,15 @@
     <div class="coluna-small-7 coluna-larg-2">
       <div class="container-logo">
         <router-link tag="a" to="/">
-          <img alt="Imagem da logomarca da empresa com a palavra Olxifres na cor preto e verde." class="logo" src="../../assets/img/logo.png">
+          <img
+            alt="Imagem da logomarca da empresa com a palavra Olxifres na cor preto e verde."
+            class="logo"
+            src="../../assets/img/logo.png"
+          />
         </router-link>
       </div>
     </div>
-    <input class="menu-btn" type="checkbox" id="menu-btn">
+    <input class="menu-btn" type="checkbox" id="menu-btn" />
     <ul class="menu">
       <transition name="slide-fade">
         <li>
@@ -21,18 +25,13 @@
       </transition>
       <transition name="slide-fade">
         <li>
-          <router-link tag="a" to="/about">Sobre nós</router-link>
-        </li>
-      </transition>
-      <transition name="slide-fade">
-        <li>
           <router-link tag="a" to="/contato">Contato</router-link>
         </li>
       </transition>
       <li>
         <div>
           <router-link tag="a" :to="rota">
-            <i class="fa fa-user" aria-hidden="true"/>
+            <i class="fa fa-user" aria-hidden="true" />
             <span v-html="textoLogin"></span>
           </router-link>
         </div>
@@ -45,25 +44,25 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'NavBar',
   computed: {
     ...mapGetters([['getUsuario']]),
     textoLogin() {
-      if(this.getUsuario) {
-        return ' Minha conta'
+      if (this.getUsuario) {
+        return ' Minha conta';
       }
-      return ' Login'
+      return ' Login';
     },
     rota() {
-       if(this.getUsuario) {
-        return '/minha-conta'
+      if (this.getUsuario) {
+        return '/minha-conta';
       }
-      return '/login'
-    }
-  }
+      return '/login';
+    },
+  },
 };
 </script>
 

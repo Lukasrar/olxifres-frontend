@@ -23,7 +23,8 @@
             </div>
             <div class="input-group">
               <label for="senha" class="label-info">Senha:</label>
-              <input class="input-info editavel" type="text" id="senha" v-model="usuario.senha" />
+              <input class="input-info editavel" :type="tipo" id="senha" v-model="usuario.senha" />
+              <button class="btn" @click.prevent="mostrarSenha">{{textoBtn}}</button>
             </div>
             <div class="input-group">
               <label for="cpf" class="label-info">CPF:</label>
@@ -129,6 +130,9 @@ export default {
       animais: [],
       animaisInativos: [],
       usuario: {},
+      mostrar: true,
+      textoBtn: 'Mostrar Senha',
+      tipo: 'password',
     };
   },
   computed: {
@@ -148,6 +152,17 @@ export default {
     preencherUsuario() {
       this.usuario = cloneDeep(this.getUsuario);
     },
+    mostrarSenha() {
+      if (this.mostrar == true) {
+        this.tipo = 'text';
+        this.mostrar = !this.mostrar;
+        this.textoBtn = 'Esconder Senha';
+      } else {
+        this.tipo = 'password';
+        this.mostrar = !this.mostrar;
+        this.textoBtn = 'Mostrar Senha';
+      }
+    },
   },
   async mounted() {
     this.preencherUsuario();
@@ -166,7 +181,7 @@ export default {
 }
 
 .btn:hover {
-  transform: scale(1.05);
+  transform: scale(0.97);
 }
 
 .cancel {

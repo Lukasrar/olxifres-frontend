@@ -44,7 +44,7 @@
           </div>
 
           <div class="container-tempo">
-            <p class="label-timer-leilao">O leilão acaba em: 12:23:30</p>
+            <p class="label-timer-leilao">O leilão acaba em {{ getDiferencaEmDias(leilao.data) }} dia(s)</p>
           </div>
         </div>
         <div class="coluna-small-12 coluna-larg-4">
@@ -200,6 +200,9 @@ export default {
         });
       }
     },
+    getDiferencaEmDias(data) {
+      return moment(data).diff(moment(), 'days');
+    }
   },
 };
 </script>
