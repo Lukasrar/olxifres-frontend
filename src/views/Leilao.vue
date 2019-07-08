@@ -23,11 +23,21 @@
                 <img class="d-block w-100" src="../assets/img/banner_3.jpg" alt="Third slide">
               </div>-->
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <a
+              class="carousel-control-prev"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="prev"
+            >
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <a
+              class="carousel-control-next"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="next"
+            >
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
@@ -61,7 +71,12 @@
                 <strong>Valor:</strong>
                 <p class="obs">Deve ser maior que o último lance do leilão.</p>
               </label>
-              <input v-model="valor" type="text" placeholder="Informe o valor do lance" class="input-valor input-100" />
+              <input
+                v-model="valor"
+                type="text"
+                placeholder="Informe o valor do lance"
+                class="input-valor input-100"
+              />
               <input
                 type="submit"
                 value="Dar lance"
@@ -92,7 +107,7 @@
           </div>
         </div>-->
       </div>
-      <UltimosLeiloes />
+      <LeiloesAtivos />
     </div>
   </div>
 </template>
@@ -100,13 +115,13 @@
 <script>
 import { mapGetters } from 'vuex';
 import moment from 'moment';
-import UltimosLeiloes from '../components/layout/UltimosLeiloes';
+import LeiloesAtivos from '../components/layout/LeiloesAtivos';
 import mixin from '../mixins';
 
 export default {
   name: 'Leilao',
   components: {
-    UltimosLeiloes,
+    LeiloesAtivos,
   },
   mixins: [mixin],
   data() {
@@ -120,7 +135,7 @@ export default {
     '$route.params.idLeilao': {
       handler(value) {
         if (!value) return;
-
+        this.isOpen();
         this.buscarLeilao();
       },
     },
@@ -136,32 +151,54 @@ export default {
   },
   async mounted() {
     await this.buscarLeilao();
-    this.$noty.error('Leilão encerrado!', {
-      killer: true,
-      timeout: 2000,
-      layout: 'topRight',
-    });
+    this.isOpen();
   },
   methods: {
     async buscarLeilao() {
       this.leilao = (await this.$api.get(`/leilao/${this.idLeilao}`)).data;
     },
     async darLance() {
-      try {
-        const body = {
-          valor: this.valor,
-          idUsuario: this.usuario.id_usuario,
-        };
+      if (this.valor > this.leilao.lances[0].valor) {
+        try {
+          const body = {
+            valor: this.valor,
+            idUsuario: this.usuario.id_usuario,
+          };
 
-        await this.$api.post(`/lance/${this.idLeilao}`, body);
-
-        await this.buscarLeilao();
-      } catch (err) {
-        console.error(err);
+          await this.$api.post(`/lance/${this.idLeilao}`, body);
+          await this.buscarLeilao();
+          this.$noty.success('Lance Registrado com sucesso!', {
+            killer: true,
+            timeout: 4000,
+            layout: 'topRight',
+          });
+        } catch (err) {
+          console.error(err);
+          this.$noty.error('Ocorreu um erro ao registrar o seu lance.', {
+            killer: true,
+            timeout: 4000,
+            layout: 'topRight',
+          });
+        }
+      } else {
+        this.$noty.error('O valor do seu lance deve ser maior que o ultimo lance do leilão.', {
+          killer: true,
+          timeout: 4000,
+          layout: 'topRight',
+        });
       }
     },
     formatarData(data) {
       return moment(data).format('DD/MM/YYYY');
+    },
+    isOpen() {
+      if (this.leilao.status == 1) {
+        this.$noty.error('Leilão encerrado!', {
+          killer: true,
+          timeout: 2000,
+          layout: 'topRight',
+        });
+      }
     },
   },
 };
